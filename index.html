@@ -27,12 +27,7 @@
             background-position: center;
             background-repeat: no-repeat;
             z-index: 9999;
-            opacity: 1;
-            transition: opacity 0.5s ease-in-out;
-        }
-
-        .splash-screen.fade-out {
-            opacity: 0;
+            display: block;
         }
 
         .splash-screen.hidden {
@@ -45,16 +40,14 @@
             padding: 20px;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             color: white;
-            display: flex;
+            display: none;
             align-items: center;
             justify-content: center;
             flex-direction: column;
-            opacity: 0;
-            transition: opacity 0.5s ease-in-out;
         }
 
         .main-content.show {
-            opacity: 1;
+            display: flex;
         }
 
         .main-content h1 {
@@ -75,7 +68,7 @@
     <div id="splash1" class="splash-screen" style="background-image: url('images/title-card.png');"></div>
     
     <!-- Second splash screen -->
-    <div id="splash2" class="splash-screen" style="background-image: url('images/title-card-2.png'); opacity: 0;"></div>
+    <div id="splash2" class="splash-screen hidden" style="background-image: url('images/title-card-2.png');"></div>
 
     <!-- Main website content -->
     <div id="mainContent" class="main-content">
@@ -90,23 +83,17 @@
             const splash2 = document.getElementById('splash2');
             const mainContent = document.getElementById('mainContent');
 
-            // After 3 seconds, transition to second image
+            // After 3 seconds, BAM! Switch to second image instantly
             setTimeout(() => {
-                splash1.classList.add('fade-out');
-                splash2.style.opacity = '1';
+                splash1.classList.add('hidden');
+                splash2.classList.remove('hidden');
             }, 3000);
 
-            // After 5 seconds total (2 more seconds), show main content
+            // After 5 seconds total (2 more seconds), BAM! Show main content
             setTimeout(() => {
-                splash2.classList.add('fade-out');
+                splash2.classList.add('hidden');
+                mainContent.classList.add('show');
                 document.body.style.overflow = 'auto'; // Re-enable scrolling
-                
-                // After fade out completes, show main content
-                setTimeout(() => {
-                    splash1.classList.add('hidden');
-                    splash2.classList.add('hidden');
-                    mainContent.classList.add('show');
-                }, 500);
             }, 5000);
         });
     </script>
