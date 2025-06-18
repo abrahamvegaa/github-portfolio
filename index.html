@@ -1,5 +1,114 @@
 <!DOCTYPE html>
-<html>
-  <head><title>I just added to my local machine</title></head>
-  <body><h1>Hello GitHub Pages!</h1></body>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abraham's Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            overflow: hidden; /* Hide scrollbars during splash */
+        }
+
+        /* Splash screen styles */
+        .splash-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            z-index: 9999;
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .splash-screen.fade-out {
+            opacity: 0;
+        }
+
+        .splash-screen.hidden {
+            display: none;
+        }
+
+        /* Main content styles */
+        .main-content {
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .main-content.show {
+            opacity: 1;
+        }
+
+        .main-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .main-content p {
+            font-size: 1.2rem;
+            text-align: center;
+            max-width: 600px;
+        }
+    </style>
+</head>
+<body>
+    <!-- First splash screen -->
+    <div id="splash1" class="splash-screen" style="background-image: url('images/title-card.png');"></div>
+    
+    <!-- Second splash screen -->
+    <div id="splash2" class="splash-screen" style="background-image: url('images/title-card-2.png'); opacity: 0;"></div>
+
+    <!-- Main website content -->
+    <div id="mainContent" class="main-content">
+        <h1>Welcome to My Portfolio</h1>
+        <p>This is where your main website content will go. You can add your projects, about section, contact information, and more!</p>
+    </div>
+
+    <script>
+        // Wait for page to load
+        window.addEventListener('load', function() {
+            const splash1 = document.getElementById('splash1');
+            const splash2 = document.getElementById('splash2');
+            const mainContent = document.getElementById('mainContent');
+
+            // After 3 seconds, transition to second image
+            setTimeout(() => {
+                splash1.classList.add('fade-out');
+                splash2.style.opacity = '1';
+            }, 3000);
+
+            // After 5 seconds total (2 more seconds), show main content
+            setTimeout(() => {
+                splash2.classList.add('fade-out');
+                document.body.style.overflow = 'auto'; // Re-enable scrolling
+                
+                // After fade out completes, show main content
+                setTimeout(() => {
+                    splash1.classList.add('hidden');
+                    splash2.classList.add('hidden');
+                    mainContent.classList.add('show');
+                }, 500);
+            }, 5000);
+        });
+    </script>
+</body>
 </html>
