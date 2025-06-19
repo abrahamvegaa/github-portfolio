@@ -34,6 +34,67 @@
             display: none;
         }
 
+        /* Instruction text on second splash */
+        .instruction-text {
+            position: absolute;
+            bottom: 50px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: white;
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-align: center;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
+            animation: pulse 2s infinite;
+            z-index: 10000;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.6; }
+        }
+
+        /* Page flip animation */
+        .page-flip {
+            animation: pageFlip 1s ease-in-out forwards;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes pageFlip {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            50% {
+                transform: perspective(1000px) rotateY(-90deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(-180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Main content entrance animation */
+        .main-content.page-enter {
+            animation: pageEnter 1s ease-in-out forwards;
+            transform-origin: right center;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes pageEnter {
+            0% {
+                transform: perspective(1000px) rotateY(180deg);
+                opacity: 0;
+            }
+            50% {
+                transform: perspective(1000px) rotateY(90deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
         /* Main content styles */
         .main-content {
             min-height: 100vh;
@@ -68,7 +129,11 @@
     <div id="splash1" class="splash-screen" style="background-image: url('images/title-card.png');"></div>
     
     <!-- Second splash screen -->
-    <div id="splash2" class="splash-screen hidden" style="background-image: url('images/title-card-2.png');"></div>
+    <div id="splash2" class="splash-screen hidden" style="background-image: url('images/title-card-2.png');">
+        <div id="instructionText" class="instruction-text" style="display: none;">
+            Click anywhere or press any key to continue
+        </div>
+    </div>
 
     <!-- Main website content -->
     <div id="mainContent" class="main-content">
@@ -82,19 +147,44 @@
             const splash1 = document.getElementById('splash1');
             const splash2 = document.getElementById('splash2');
             const mainContent = document.getElementById('mainContent');
+            const instructionText = document.getElementById('instructionText');
+            let canProceed = false;
 
             // After 3 seconds, BAM! Switch to second image instantly
             setTimeout(() => {
                 splash1.classList.add('hidden');
                 splash2.classList.remove('hidden');
+                // Show instruction text after a brief delay
+                setTimeout(() => {
+                    instructionText.style.display = 'block';
+                    canProceed = true;
+                }, 500);
             }, 3000);
 
-            // After 5 seconds total (2 more seconds), BAM! Show main content
-            setTimeout(() => {
-                splash2.classList.add('hidden');
-                mainContent.classList.add('show');
-                document.body.style.overflow = 'auto'; // Re-enable scrolling
-            }, 5000);
+            // Function to proceed to main content with page flip animation
+            function proceedToMain() {
+                if (canProceed) {
+                    // Remove event listeners to prevent multiple triggers
+                    document.removeEventListener('click', proceedToMain);
+                    document.removeEventListener('keydown', proceedToMain);
+                    
+                    // Start the page flip animation
+                    splash2.classList.add('page-flip');
+                    mainContent.classList.add('show', 'page-enter');
+                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                    
+                    // Hide the splash screen after animation completes
+                    setTimeout(() => {
+                        splash2.classList.add('hidden');
+                    }, 1000); // Match the animation duration
+                }
+            }
+
+            // Listen for click anywhere on screen
+            document.addEventListener('click', proceedToMain);
+
+            // Listen for any key press
+            document.addEventListener('keydown', proceedToMain);
         });
     </script>
 </body>
