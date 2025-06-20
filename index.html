@@ -126,10 +126,10 @@
 </head>
 <body>
     <!-- First splash screen -->
-    <div id="splash1" class="splash-screen" style="background-image: url('images/title-card.png');"></div>
+    <div id="splash1" class="splash-screen" style="background-image: url('images/clean_cover.png');"></div>
     
     <!-- Second splash screen -->
-    <div id="splash2" class="splash-screen hidden" style="background-image: url('images/title-card-2.png');">
+    <div id="splash2" class="splash-screen hidden">
         <div id="instructionText" class="instruction-text" style="display: none;">
             Click anywhere or press any key to continue
         </div>
@@ -150,7 +150,17 @@
             const instructionText = document.getElementById('instructionText');
             let canProceed = false;
 
-            // After 3 seconds, BAM! Switch to second image instantly
+            // Randomly select one of the 8 splatter images
+            const randomSplatterNumber = Math.floor(Math.random() * 8) + 1; // Random number 1-8
+            const selectedSplatterImage = `images/splatter_${randomSplatterNumber}.png`;
+            
+            // Set the random splatter image as background for second splash
+            splash2.style.backgroundImage = `url('${selectedSplatterImage}')`;
+            splash2.style.backgroundSize = 'cover';
+            splash2.style.backgroundPosition = 'center';
+            splash2.style.backgroundRepeat = 'no-repeat';
+
+            // After 3 seconds, BAM! Switch to random splatter image instantly
             setTimeout(() => {
                 splash1.classList.add('hidden');
                 splash2.classList.remove('hidden');
