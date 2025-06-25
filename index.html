@@ -263,11 +263,11 @@
 
             // Function to proceed to main content with page flip animation
             function proceedToMain() {
+                // Always remove event listeners to prevent multiple triggers
+                document.removeEventListener('click', proceedToMain);
+                document.removeEventListener('keydown', proceedToMain);
+                
                 if (canProceed) {
-                    // Remove event listeners to prevent multiple triggers
-                    document.removeEventListener('click', proceedToMain);
-                    document.removeEventListener('keydown', proceedToMain);
-                    
                     // Start the page flip animation
                     splash2.classList.add('page-flip');
                     welcomePage.classList.add('show', 'page-enter');
@@ -277,7 +277,33 @@
                     setTimeout(() => {
                         splash2.classList.add('hidden');
                     }, 1000); // Match the animation duration
+                } else {
+                    // If clicked too early, force proceed after a short delay
+                    setTimeout(() => {
+                        splash1.classList.add('hidden');
+                        splash2.classList.remove('hidden');
+                        instructionText.style.display = 'block';
+                        canProceed = true;
+                        
+                        // Re-add event listeners for the next stage
+                        document.addEventListener('click', proceedToWelcome);
+                        document.addEventListener('keydown', proceedToWelcome);
+                    }, 100);
                 }
+            }
+            
+            // Function to proceed directly to welcome page
+            function proceedToWelcome() {
+                document.removeEventListener('click', proceedToWelcome);
+                document.removeEventListener('keydown', proceedToWelcome);
+                
+                splash2.classList.add('page-flip');
+                welcomePage.classList.add('show', 'page-enter');
+                document.body.style.overflow = 'auto';
+                
+                setTimeout(() => {
+                    splash2.classList.add('hidden');
+                }, 1000);
             }
 
     // Listen for click anywhere on screen
