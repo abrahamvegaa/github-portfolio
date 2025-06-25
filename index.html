@@ -95,6 +95,54 @@
             }
         }
 
+        /* Welcome page styles */
+        .welcome-page {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-image: url('images/welcome_page.png');
+            z-index: 9998;
+            display: none;
+        }
+
+        .welcome-page.show {
+            display: block;
+        }
+
+        /* Arrow navigation */
+        .arrow-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 3rem;
+            color: white;
+            background: rgba(0,0,0,0.5);
+            border: none;
+            padding: 20px;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+            z-index: 10001;
+        }
+
+        .arrow-nav:hover {
+            background: rgba(0,0,0,0.8);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .arrow-left {
+            left: 30px;
+        }
+
+        .arrow-right {
+            right: 30px;
+        }
+
         /* Main content styles */
         .main-content {
             min-height: 100vh;
@@ -108,6 +156,22 @@
         }
 
         .main-content.show {
+            display: flex;
+        }
+
+        /* Second page styles */
+        .second-page {
+            min-height: 100vh;
+            padding: 20px;
+            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+            color: white;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .second-page.show {
             display: flex;
         }
 
@@ -135,10 +199,23 @@
         </div>
     </div>
 
+    <!-- Welcome page -->
+    <div id="welcomePage" class="welcome-page">
+        <button id="leftArrow" class="arrow-nav arrow-left">←</button>
+        <button id="rightArrow" class="arrow-nav arrow-right">→</button>
+    </div>
+
     <!-- Main website content -->
     <div id="mainContent" class="main-content">
-        <h1>Welcome to My Portfolio</h1>
+        <h1>Welcome to My Engineering Portfolio</h1>
         <p>This is where your main website content will go. You can add your projects, about section, contact information, and more!</p>
+    </div>
+
+    <!-- Second page -->
+    <div id="secondPage" class="second-page">
+        <h1>Projects & Experience</h1>
+        <p>This is your second page! You can add your projects, skills, experience, or any other content here.</p>
+        <button onclick="goToWelcome()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; background: white; color: #764ba2; border: none; border-radius: 5px; cursor: pointer;">Back to Navigation</button>
     </div>
 
     <script>
@@ -147,8 +224,21 @@
             const splash1 = document.getElementById('splash1');
             const splash2 = document.getElementById('splash2');
             const mainContent = document.getElementById('mainContent');
+            const welcomePage = document.getElementById('welcomePage');
+            const secondPage = document.getElementById('secondPage');
+            const leftArrow = document.getElementById('leftArrow');
+            const rightArrow = document.getElementById('rightArrow');
             const instructionText = document.getElementById('instructionText');
             let canProceed = false;
+
+            // Arrow navigation handlers
+            leftArrow.addEventListener('click', function() {
+                goToMainContent();
+            });
+
+            rightArrow.addEventListener('click', function() {
+                goToSecondPage();
+            });
 
             // Randomly select one of the 8 splatter images
             const randomSplatterNumber = Math.floor(Math.random() * 8) + 1; // Random number 1-8
@@ -180,7 +270,7 @@
                     
                     // Start the page flip animation
                     splash2.classList.add('page-flip');
-                    mainContent.classList.add('show', 'page-enter');
+                    welcomePage.classList.add('show', 'page-enter');
                     document.body.style.overflow = 'auto'; // Re-enable scrolling
                     
                     // Hide the splash screen after animation completes
@@ -190,12 +280,35 @@
                 }
             }
 
-            // Listen for click anywhere on screen
-            document.addEventListener('click', proceedToMain);
+    // Listen for click anywhere on screen
+    document.addEventListener('click', proceedToMain);
 
-            // Listen for any key press
-            document.addEventListener('keydown', proceedToMain);
-        });
-    </script>
+    // Listen for any key press
+    document.addEventListener('keydown', proceedToMain);
+
+    // Function to navigate to main content
+    function goToMainContent() {
+        welcomePage.classList.remove('show');
+        splash2.classList.remove('hidden');
+        const selectedSplatterImage = `images/splatter_${Math.floor(Math.random() * 8) + 1}.png`;
+        splash2.style.backgroundImage = `url('${selectedSplatterImage}')`;
+        splash2.style.backgroundSize = 'cover';
+        splash2.style.backgroundPosition = 'center';
+        splash2.style.backgroundRepeat = 'no-repeat';
+    };
+
+    // Function to navigate to second page
+    function goToSecondPage() {
+        welcomePage.classList.remove('show');
+        secondPage.classList.add('show');
+    }
+
+    // Function to navigate back to welcome page
+    function goToWelcome() {
+        secondPage.classList.remove('show');
+        welcomePage.classList.add('show');
+    }
+
+});
 </body>
 </html>
