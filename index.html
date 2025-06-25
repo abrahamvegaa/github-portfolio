@@ -255,6 +255,7 @@
     <!-- Welcome page -->
     <div id="welcomePage" class="welcome-page">
         <img src="images/welcome_page.png" alt="Welcome" class="welcome-image">
+        <button id="welcomeLeftArrow" class="arrow-nav arrow-left" onclick="goToSplatterPageWithFlip()">←</button>
         <button id="rightArrow" class="arrow-nav arrow-right">→</button>
     </div>
 
@@ -355,11 +356,14 @@
 
             // Function to navigate to second page with page flip
             window.goToSecondPageWithFlip = function() {
+                // Show the new page immediately with entrance animation
+                secondPage.classList.add('show', 'page-enter-from-right');
+                // Start the flip animation on the current page
                 welcomePage.classList.add('page-flip-forward');
                 setTimeout(() => {
-                    welcomePage.classList.remove('show');
-                    secondPage.classList.add('show', 'page-enter-from-right');
-                }, 500);
+                    welcomePage.classList.remove('show', 'page-flip-forward');
+                    secondPage.classList.remove('page-enter-from-right');
+                }, 1000);
             };
 
             // Function to navigate to second page
@@ -370,12 +374,14 @@
 
             // Function to navigate back to welcome page with page flip
             window.goToWelcomeWithFlip = function() {
+                // Show the new page immediately with entrance animation
+                welcomePage.classList.add('show', 'page-enter-from-left');
+                // Start the flip animation on the current page
                 secondPage.classList.add('page-flip-backward');
                 setTimeout(() => {
                     secondPage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
                     welcomePage.classList.remove('page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
-                    welcomePage.classList.add('show', 'page-enter-from-left');
-                }, 500);
+                }, 1000);
             };
 
             // Function to navigate back to welcome page
@@ -391,6 +397,21 @@
                 splash2.classList.remove('hidden');
                 canProceed = true;
                 instructionText.style.display = 'block';
+            };
+
+            // Function to navigate back to splatter page with page flip
+            window.goToSplatterPageWithFlip = function() {
+                // Show the splatter page immediately
+                splash2.classList.remove('hidden');
+                splash2.style.display = 'block';
+                // Start the flip animation on the welcome page
+                welcomePage.classList.add('page-flip-backward');
+                setTimeout(() => {
+                    welcomePage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
+                    canProceed = true;
+                    instructionText.style.display = 'block';
+                    document.body.style.overflow = 'hidden';
+                }, 1000);
             };
         });
     </script>
