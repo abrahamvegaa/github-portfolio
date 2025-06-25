@@ -231,17 +231,8 @@
             const instructionText = document.getElementById('instructionText');
             let canProceed = false;
 
-            // Arrow navigation handlers
-            leftArrow.addEventListener('click', function() {
-                goToMainContent();
-            });
-
-            rightArrow.addEventListener('click', function() {
-                goToSecondPage();
-            });
-
             // Randomly select one of the 8 splatter images
-            const randomSplatterNumber = Math.floor(Math.random() * 8) + 1; // Random number 1-8
+            const randomSplatterNumber = Math.floor(Math.random() * 8) + 1;
             const selectedSplatterImage = `images/splatter_${randomSplatterNumber}.png`;
             
             // Set the random splatter image as background for second splash
@@ -261,80 +252,58 @@
                 }, 500);
             }, 3000);
 
-            // Function to proceed to main content with page flip animation
-            function proceedToMain() {
-                // Always remove event listeners to prevent multiple triggers
-                document.removeEventListener('click', proceedToMain);
-                document.removeEventListener('keydown', proceedToMain);
-                
+            // Function to proceed to welcome page with page flip animation
+            function proceedToWelcome() {
                 if (canProceed) {
+                    // Remove event listeners to prevent multiple triggers
+                    document.removeEventListener('click', proceedToWelcome);
+                    document.removeEventListener('keydown', proceedToWelcome);
+                    
                     // Start the page flip animation
                     splash2.classList.add('page-flip');
                     welcomePage.classList.add('show', 'page-enter');
-                    document.body.style.overflow = 'auto'; // Re-enable scrolling
+                    document.body.style.overflow = 'auto';
                     
                     // Hide the splash screen after animation completes
                     setTimeout(() => {
                         splash2.classList.add('hidden');
-                    }, 1000); // Match the animation duration
-                } else {
-                    // If clicked too early, force proceed after a short delay
-                    setTimeout(() => {
-                        splash1.classList.add('hidden');
-                        splash2.classList.remove('hidden');
-                        instructionText.style.display = 'block';
-                        canProceed = true;
-                        
-                        // Re-add event listeners for the next stage
-                        document.addEventListener('click', proceedToWelcome);
-                        document.addEventListener('keydown', proceedToWelcome);
-                    }, 100);
+                    }, 1000);
                 }
             }
-            
-            // Function to proceed directly to welcome page
-            function proceedToWelcome() {
-                document.removeEventListener('click', proceedToWelcome);
-                document.removeEventListener('keydown', proceedToWelcome);
-                
-                splash2.classList.add('page-flip');
-                welcomePage.classList.add('show', 'page-enter');
-                document.body.style.overflow = 'auto';
-                
-                setTimeout(() => {
-                    splash2.classList.add('hidden');
-                }, 1000);
-            }
 
-    // Listen for click anywhere on screen
-    document.addEventListener('click', proceedToMain);
+            // Listen for click anywhere on screen
+            document.addEventListener('click', proceedToWelcome);
 
-    // Listen for any key press
-    document.addEventListener('keydown', proceedToMain);
+            // Listen for any key press
+            document.addEventListener('keydown', proceedToWelcome);
 
-    // Function to navigate to main content
-    function goToMainContent() {
-        welcomePage.classList.remove('show');
-        splash2.classList.remove('hidden');
-        const selectedSplatterImage = `images/splatter_${Math.floor(Math.random() * 8) + 1}.png`;
-        splash2.style.backgroundImage = `url('${selectedSplatterImage}')`;
-        splash2.style.backgroundSize = 'cover';
-        splash2.style.backgroundPosition = 'center';
-        splash2.style.backgroundRepeat = 'no-repeat';
-    };
+            // Arrow navigation handlers
+            leftArrow.addEventListener('click', function() {
+                goToMainContent();
+            });
 
-    // Function to navigate to second page
-    function goToSecondPage() {
-        welcomePage.classList.remove('show');
-        secondPage.classList.add('show');
-    }
+            rightArrow.addEventListener('click', function() {
+                goToSecondPage();
+            });
 
-    // Function to navigate back to welcome page
-    function goToWelcome() {
-        secondPage.classList.remove('show');
-        welcomePage.classList.add('show');
-    }
+            // Function to navigate to main content
+            window.goToMainContent = function() {
+                welcomePage.classList.remove('show');
+                mainContent.classList.add('show');
+            };
 
-});
+            // Function to navigate to second page
+            window.goToSecondPage = function() {
+                welcomePage.classList.remove('show');
+                secondPage.classList.add('show');
+            };
+
+            // Function to navigate back to welcome page
+            window.goToWelcome = function() {
+                secondPage.classList.remove('show');
+                mainContent.classList.remove('show');
+                welcomePage.classList.add('show');
+            };
+        });
 </body>
 </html>
