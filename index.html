@@ -116,9 +116,9 @@
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            width: 70%;
+            width: 85%;
             height: auto;
-            max-width: 800px;
+            max-width: 1000px;
             object-fit: contain;
         }
 
@@ -214,7 +214,6 @@
     <!-- Welcome page -->
     <div id="welcomePage" class="welcome-page">
         <img src="images/welcome_page.png" alt="Welcome" class="welcome-image">
-        <button id="leftArrow" class="arrow-nav arrow-left">←</button>
         <button id="rightArrow" class="arrow-nav arrow-right">→</button>
     </div>
 
@@ -228,7 +227,7 @@
     <div id="secondPage" class="second-page">
         <h1>Projects & Experience</h1>
         <p>This is your second page! You can add your projects, skills, experience, or any other content here.</p>
-        <button onclick="goToWelcome()" style="margin-top: 20px; padding: 10px 20px; font-size: 1rem; background: white; color: #764ba2; border: none; border-radius: 5px; cursor: pointer;">Back to Navigation</button>
+        <button id="backArrow" class="arrow-nav arrow-left" onclick="goToWelcomeWithFlip()">←</button>
     </div>
 
     <script>
@@ -302,13 +301,9 @@
             // Listen for any key press
             document.addEventListener('keydown', proceedToWelcome);
 
-            // Arrow navigation handlers
-            leftArrow.addEventListener('click', function() {
-                goToSplatterPage();
-            });
-
+            // Arrow navigation handler for right arrow
             rightArrow.addEventListener('click', function() {
-                goToSecondPage();
+                goToSecondPageWithFlip();
             });
 
             // Function to navigate to main content
@@ -317,10 +312,28 @@
                 mainContent.classList.add('show');
             };
 
+            // Function to navigate to second page with page flip
+            window.goToSecondPageWithFlip = function() {
+                welcomePage.classList.add('page-flip');
+                setTimeout(() => {
+                    welcomePage.classList.remove('show');
+                    secondPage.classList.add('show', 'page-enter');
+                }, 500);
+            };
+
             // Function to navigate to second page
             window.goToSecondPage = function() {
                 welcomePage.classList.remove('show');
                 secondPage.classList.add('show');
+            };
+
+            // Function to navigate back to welcome page with page flip
+            window.goToWelcomeWithFlip = function() {
+                secondPage.classList.add('page-flip');
+                setTimeout(() => {
+                    secondPage.classList.remove('show');
+                    welcomePage.classList.add('show', 'page-enter');
+                }, 500);
             };
 
             // Function to navigate back to welcome page
