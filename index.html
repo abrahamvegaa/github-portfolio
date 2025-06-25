@@ -54,14 +54,14 @@
             50% { opacity: 0.6; }
         }
 
-        /* Page flip animation */
-        .page-flip {
-            animation: pageFlip 1s ease-in-out forwards;
+        /* Page flip forward animation */
+        .page-flip-forward {
+            animation: pageFlipForward 1s ease-in-out forwards;
             transform-origin: left center;
             transform-style: preserve-3d;
         }
 
-        @keyframes pageFlip {
+        @keyframes pageFlipForward {
             0% {
                 transform: perspective(1000px) rotateY(0deg);
             }
@@ -74,20 +74,61 @@
             }
         }
 
-        /* Main content entrance animation */
-        .main-content.page-enter {
-            animation: pageEnter 1s ease-in-out forwards;
+        /* Page flip backward animation */
+        .page-flip-backward {
+            animation: pageFlipBackward 1s ease-in-out forwards;
             transform-origin: right center;
             transform-style: preserve-3d;
         }
 
-        @keyframes pageEnter {
+        @keyframes pageFlipBackward {
+            0% {
+                transform: perspective(1000px) rotateY(0deg);
+            }
+            50% {
+                transform: perspective(1000px) rotateY(90deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(180deg);
+                opacity: 0;
+            }
+        }
+
+        /* Page enter from right animation */
+        .page-enter-from-right {
+            animation: pageEnterFromRight 1s ease-in-out forwards;
+            transform-origin: right center;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes pageEnterFromRight {
             0% {
                 transform: perspective(1000px) rotateY(180deg);
                 opacity: 0;
             }
             50% {
                 transform: perspective(1000px) rotateY(90deg);
+            }
+            100% {
+                transform: perspective(1000px) rotateY(0deg);
+                opacity: 1;
+            }
+        }
+
+        /* Page enter from left animation */
+        .page-enter-from-left {
+            animation: pageEnterFromLeft 1s ease-in-out forwards;
+            transform-origin: left center;
+            transform-style: preserve-3d;
+        }
+
+        @keyframes pageEnterFromLeft {
+            0% {
+                transform: perspective(1000px) rotateY(-180deg);
+                opacity: 0;
+            }
+            50% {
+                transform: perspective(1000px) rotateY(-90deg);
             }
             100% {
                 transform: perspective(1000px) rotateY(0deg);
@@ -284,8 +325,8 @@
                     document.removeEventListener('keydown', proceedToWelcome);
                     
                     // Start the page flip animation
-                    splash2.classList.add('page-flip');
-                    welcomePage.classList.add('show', 'page-enter');
+                    splash2.classList.add('page-flip-forward');
+                    welcomePage.classList.add('show', 'page-enter-from-right');
                     document.body.style.overflow = 'auto';
                     
                     // Hide the splash screen after animation completes
@@ -314,10 +355,10 @@
 
             // Function to navigate to second page with page flip
             window.goToSecondPageWithFlip = function() {
-                welcomePage.classList.add('page-flip');
+                welcomePage.classList.add('page-flip-forward');
                 setTimeout(() => {
                     welcomePage.classList.remove('show');
-                    secondPage.classList.add('show', 'page-enter');
+                    secondPage.classList.add('show', 'page-enter-from-right');
                 }, 500);
             };
 
@@ -329,11 +370,11 @@
 
             // Function to navigate back to welcome page with page flip
             window.goToWelcomeWithFlip = function() {
-                secondPage.classList.add('page-flip');
+                secondPage.classList.add('page-flip-backward');
                 setTimeout(() => {
-                    secondPage.classList.remove('show', 'page-flip', 'page-enter');
-                    welcomePage.classList.remove('page-flip', 'page-enter');
-                    welcomePage.classList.add('show');
+                    secondPage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
+                    welcomePage.classList.remove('page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
+                    welcomePage.classList.add('show', 'page-enter-from-left');
                 }, 500);
             };
 
