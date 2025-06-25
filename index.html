@@ -102,12 +102,24 @@
             left: 0;
             width: 100vw;
             height: 100vh;
+            background-image: url('images/blank_blue.png');
             background-size: cover;
             background-position: center;
             background-repeat: no-repeat;
-            background-image: url('images/welcome_page.png');
             z-index: 9998;
             display: none;
+        }
+
+        /* Welcome page foreground image */
+        .welcome-image {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 70%;
+            height: auto;
+            max-width: 800px;
+            object-fit: contain;
         }
 
         .welcome-page.show {
@@ -201,6 +213,7 @@
 
     <!-- Welcome page -->
     <div id="welcomePage" class="welcome-page">
+        <img src="images/welcome_page.png" alt="Welcome" class="welcome-image">
         <button id="leftArrow" class="arrow-nav arrow-left">←</button>
         <button id="rightArrow" class="arrow-nav arrow-right">→</button>
     </div>
@@ -291,7 +304,7 @@
 
             // Arrow navigation handlers
             leftArrow.addEventListener('click', function() {
-                goToMainContent();
+                goToSplatterPage();
             });
 
             rightArrow.addEventListener('click', function() {
@@ -315,6 +328,14 @@
                 secondPage.classList.remove('show');
                 mainContent.classList.remove('show');
                 welcomePage.classList.add('show');
+            };
+
+            // Function to navigate to splatter page (back to splatter images)
+            window.goToSplatterPage = function() {
+                welcomePage.classList.remove('show');
+                splash2.classList.remove('hidden');
+                canProceed = true;
+                instructionText.style.display = 'block';
             };
         });
     </script>
