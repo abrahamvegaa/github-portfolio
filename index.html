@@ -331,8 +331,9 @@
             window.goToWelcomeWithFlip = function() {
                 secondPage.classList.add('page-flip');
                 setTimeout(() => {
-                    secondPage.classList.remove('show');
-                    welcomePage.classList.add('show', 'page-enter');
+                    secondPage.classList.remove('show', 'page-flip', 'page-enter');
+                    welcomePage.classList.remove('page-flip', 'page-enter');
+                    welcomePage.classList.add('show');
                 }, 500);
             };
 
