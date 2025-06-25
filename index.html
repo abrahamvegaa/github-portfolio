@@ -221,6 +221,7 @@
     <script>
         // Wait for page to load
         window.addEventListener('load', function() {
+            console.log('Page loaded, starting script...');
             const splash1 = document.getElementById('splash1');
             const splash2 = document.getElementById('splash2');
             const mainContent = document.getElementById('mainContent');
@@ -230,10 +231,18 @@
             const rightArrow = document.getElementById('rightArrow');
             const instructionText = document.getElementById('instructionText');
             let canProceed = false;
+            
+            console.log('Elements found:', {
+                splash1: !!splash1,
+                splash2: !!splash2,
+                welcomePage: !!welcomePage,
+                instructionText: !!instructionText
+            });
 
             // Randomly select one of the 8 splatter images
             const randomSplatterNumber = Math.floor(Math.random() * 8) + 1;
             const selectedSplatterImage = `images/splatter_${randomSplatterNumber}.png`;
+            console.log('Selected splatter image:', selectedSplatterImage);
             
             // Set the random splatter image as background for second splash
             splash2.style.backgroundImage = `url('${selectedSplatterImage}')`;
@@ -241,12 +250,15 @@
             splash2.style.backgroundPosition = 'center';
             splash2.style.backgroundRepeat = 'no-repeat';
 
+            console.log('Starting 3-second timer...');
             // After 3 seconds, BAM! Switch to random splatter image instantly
             setTimeout(() => {
+                console.log('3 seconds elapsed, switching to splatter image');
                 splash1.classList.add('hidden');
                 splash2.classList.remove('hidden');
                 // Show instruction text after a brief delay
                 setTimeout(() => {
+                    console.log('Showing instruction text and enabling interactions');
                     instructionText.style.display = 'block';
                     canProceed = true;
                 }, 500);
@@ -305,5 +317,6 @@
                 welcomePage.classList.add('show');
             };
         });
+    </script>
 </body>
 </html>
