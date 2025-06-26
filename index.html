@@ -401,16 +401,27 @@
 
             // Function to navigate back to splatter page with page flip
             window.goToSplatterPageWithFlip = function() {
-                // Show the splatter page immediately
+                // Show the splatter page immediately behind the welcome page
                 splash2.classList.remove('hidden');
                 splash2.style.display = 'block';
+                splash2.style.zIndex = '9997'; // Make sure it's behind the welcome page initially
+                
                 // Start the flip animation on the welcome page
                 welcomePage.classList.add('page-flip-backward');
+                
+                // After the flip animation starts, bring splatter page to front
+                setTimeout(() => {
+                    splash2.style.zIndex = '9999'; // Bring splatter page to front
+                }, 500);
+                
                 setTimeout(() => {
                     welcomePage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
                     canProceed = true;
                     instructionText.style.display = 'block';
                     document.body.style.overflow = 'hidden';
+                    // Re-add event listeners for the splatter page
+                    document.addEventListener('click', proceedToWelcome);
+                    document.addEventListener('keydown', proceedToWelcome);
                 }, 1000);
             };
         });
