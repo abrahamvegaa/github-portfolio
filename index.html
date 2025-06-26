@@ -281,7 +281,6 @@
             const mainContent = document.getElementById('mainContent');
             const welcomePage = document.getElementById('welcomePage');
             const secondPage = document.getElementById('secondPage');
-            const leftArrow = document.getElementById('leftArrow');
             const rightArrow = document.getElementById('rightArrow');
             const instructionText = document.getElementById('instructionText');
             let canProceed = false;
@@ -401,29 +400,48 @@
 
             // Function to navigate back to splatter page with page flip
             window.goToSplatterPageWithFlip = function() {
-                // Show the splatter page immediately behind the welcome page
-                splash2.classList.remove('hidden');
-                splash2.style.display = 'block';
-                splash2.style.zIndex = '9997'; // Make sure it's behind the welcome page initially
-                
                 // Start the flip animation on the welcome page
                 welcomePage.classList.add('page-flip-backward');
                 
-                // After the flip animation starts, bring splatter page to front
                 setTimeout(() => {
-                    splash2.style.zIndex = '9999'; // Bring splatter page to front
-                }, 500);
-                
-                setTimeout(() => {
+                    // Hide welcome page and show splatter page
                     welcomePage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
+                    splash2.classList.remove('hidden');
+                    splash2.style.display = 'block';
+                    splash2.style.zIndex = '9999';
+                    
+                    // Restore splatter page functionality
                     canProceed = true;
                     instructionText.style.display = 'block';
                     document.body.style.overflow = 'hidden';
+                    
                     // Re-add event listeners for the splatter page
-                    document.addEventListener('click', proceedToWelcome);
-                    document.addEventListener('keydown', proceedToWelcome);
+                    document.addEventListener('click', proceedToWelcomeFromSplatter);
+                    document.addEventListener('keydown', proceedToWelcomeFromSplatter);
+ToWelcomeFromSplatter);
                 }, 1000);
             };
+            
+            // Function to proceed from splatter back to welcome page
+            function proceedToWelcomeFromSplatter() {
+                if (canProceed) {
+                    // Remove event listeners to prevent multiple triggers
+                    document.removeEventListener('click', proceedToWelcomeFromSplatter);
+                    document.removeEventListener('keydown', proceedToWelcomeFromSplatter);
+                    
+                    // Start the page flip animation
+                    splash2.classList.add('page-flip-forward');
+                    welcomePage.classList.add('show', 'page-enter-from-right');
+                    document.body.style.overflow = 'auto';
+                    
+                    // Hide the splash screen after animation completes
+                    setTimeout(() => {
+                        splash2.classList.add('hidden');
+                        splash2.classList.remove('page-flip-forward');
+                        welcomePage.classList.remove('page-enter-from-right');
+                    }, 1000);
+                }
+            }
         });
     </script>
 </body>
