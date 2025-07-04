@@ -11,7 +11,76 @@
             padding: 0;
             box-sizing: border-box;
         }
+        
 
+        /* Flower and Nature Decorations */
+        .decoration {
+            position: absolute;
+            z-index: 1;
+            pointer-events: none;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .flower-pink {
+            content: url('images/flower_pink.svg');
+            width: 60px;
+            height: auto;
+            top: 20%;
+            left: 5%;
+            animation-duration: 18s;
+        }
+
+        .flower-blue {
+            content: url('images/flower_blue.svg');
+            width: 50px;
+            height: auto;
+            top: 50%;
+            right: 8%;
+            animation-duration: 16s;
+        }
+
+        .sunflower {
+            content: url('images/sunflower.svg');
+            width: 70px;
+            height: auto;
+            bottom: 10%;
+            left: 20%;
+            animation-duration: 20s;
+        }
+
+        .fruit-hanging {
+            content: url('images/fruit_mix.svg');
+            width: 40px;
+            height: auto;
+            top: 15%;
+            right: 5%;
+            animation-duration: 22s;
+        }
+
+        .bee {
+            content: url('images/bee.svg');
+            width: 30px;
+            height: auto;
+            top: 70%;
+            left: 10%;
+            animation-duration: 14s;
+        }
+
+        .hummingbird {
+            content: url('images/hummingbird.svg');
+            width: 50px;
+            height: auto;
+            bottom: 18%;
+            right: 15%;
+            animation-duration: 18s;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+
+    
         :root {
             --forest-green: #2d5016;
             --sage-green: #87a96b;
@@ -462,40 +531,61 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Floating Garden Elements -->
+        <div class="decoration flower-pink" style="position: absolute; top: 15%; left: 8%; font-size: 3rem;">🌸</div>
+        <div class="decoration sunflower" style="position: absolute; top: 25%; right: 10%; font-size: 4rem;">🌻</div>
+        <div class="decoration flower-blue" style="position: absolute; bottom: 20%; left: 15%; font-size: 2.5rem;">🌼</div>
+        <div class="decoration bee" style="position: absolute; top: 60%; left: 5%; font-size: 2rem;">🐝</div>
+        <div class="decoration hummingbird" style="position: absolute; bottom: 30%; right: 5%; font-size: 2.5rem;">🐦</div>
+        <div class="decoration fruit-hanging" style="position: absolute; top: 10%; right: 20%; font-size: 2rem;">🍎🍊🍇</div>
+        
         <div class="hero-content">
-            <h1>Abraham Vega</h1>
-            <p class="subtitle">Growing Engineering Solutions</p>
+            <h1>Abraham Vega 🌺</h1>
+            <p class="subtitle">Growing Engineering Solutions 🌱</p>
             <p>Passionate engineering student cultivating innovative solutions through technology and design. Like a garden, I believe great engineering requires patience, dedication, and the right environment to flourish.</p>
-            <a href="#about" class="cta-button">Explore My Journey</a>
+            <a href="#about" class="cta-button">Explore My Journey 🌿</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section">
-        <h2 class="section-title fade-in">About Me</h2>
+    <section id="about" class="section" style="position: relative;">
+        <!-- Garden decorations -->
+        <div class="decoration" style="position: absolute; top: 10%; left: 3%; font-size: 3rem;">🌹</div>
+        <div class="decoration" style="position: absolute; top: 80%; right: 5%; font-size: 2.5rem;">🌷</div>
+        <div class="decoration" style="position: absolute; bottom: 15%; left: 10%; font-size: 2rem;">🦋</div>
+        <div class="decoration" style="position: absolute; top: 20%; right: 15%; font-size: 2rem;">🍓🫐</div>
+        
+        <h2 class="section-title fade-in">About Me 🌸</h2>
         <div class="about-content">
             <div class="about-image fade-in">
                 <div class="profile-card">
-                    <div class="profile-img">🌿</div>
-                    <h3>Engineering Student</h3>
-                    <p>Cultivating Knowledge</p>
+                    <div class="profile-img">🌿🌺</div>
+                    <h3>Engineering Student 🌱</h3>
+                    <p>Cultivating Knowledge 🌾</p>
                 </div>
             </div>
             <div class="about-text fade-in">
-                <h3>Nurturing Innovation Through Engineering</h3>
-                <p>As an engineering student, I approach problem-solving like tending a garden - with patience, care, and a deep understanding of how different elements work together to create something beautiful and functional.</p>
-                <p>My passion lies in sustainable engineering solutions that not only solve immediate problems but also consider long-term environmental and social impacts. I believe technology should grow alongside nature, not against it.</p>
-                <p>Currently pursuing my engineering degree while actively seeking internship opportunities and preparing for graduate studies. I'm excited to plant seeds of innovation in the engineering field.</p>
+                <h3>Nurturing Innovation Through Engineering 🌻</h3>
+                <p>As an engineering student, I approach problem-solving like tending a garden - with patience, care, and a deep understanding of how different elements work together to create something beautiful and functional. 🌿</p>
+                <p>My passion lies in sustainable engineering solutions that not only solve immediate problems but also consider long-term environmental and social impacts. I believe technology should grow alongside nature, not against it. 🌍🌱</p>
+                <p>Currently pursuing my engineering degree while actively seeking internship opportunities and preparing for graduate studies. I'm excited to plant seeds of innovation in the engineering field. 🚀🌸</p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section">
-        <h2 class="section-title fade-in">Skills & Expertise</h2>
+    <section id="skills" class="section" style="position: relative;">
+        <!-- More garden elements -->
+        <div class="decoration" style="position: absolute; top: 5%; left: 2%; font-size: 2.5rem;">🌺</div>
+        <div class="decoration" style="position: absolute; top: 70%; right: 3%; font-size: 3rem;">🌻</div>
+        <div class="decoration" style="position: absolute; bottom: 10%; left: 5%; font-size: 2rem;">🐝</div>
+        <div class="decoration" style="position: absolute; top: 40%; right: 8%; font-size: 2rem;">🍒🥝</div>
+        <div class="decoration" style="position: absolute; top: 15%; left: 85%; font-size: 2.5rem;">🌹</div>
+        
+        <h2 class="section-title fade-in">Skills & Expertise 🌺</h2>
         <div class="skills-grid">
             <div class="skill-card fade-in">
-                <h3>🔧 Engineering Fundamentals</h3>
+                <h3>🔧 Engineering Fundamentals 🌿</h3>
                 <ul class="skill-list">
                     <li>Mathematics & Physics</li>
                     <li>Problem Solving</li>
@@ -505,7 +595,7 @@
                 </ul>
             </div>
             <div class="skill-card fade-in">
-                <h3>💻 Technical Skills</h3>
+                <h3>💻 Technical Skills 🌸</h3>
                 <ul class="skill-list">
                     <li>Programming (Python, Java, C++)</li>
                     <li>CAD Software (AutoCAD, SolidWorks)</li>
@@ -515,7 +605,7 @@
                 </ul>
             </div>
             <div class="skill-card fade-in">
-                <h3>🌱 Soft Skills</h3>
+                <h3>🌱 Soft Skills 🌻</h3>
                 <ul class="skill-list">
                     <li>Team Collaboration</li>
                     <li>Communication</li>
@@ -528,54 +618,61 @@
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section">
-        <h2 class="section-title fade-in">Projects & Work</h2>
+    <section id="projects" class="section" style="position: relative;">
+        <!-- Project section garden elements -->
+        <div class="decoration" style="position: absolute; top: 5%; right: 5%; font-size: 3rem;">🌻</div>
+        <div class="decoration" style="position: absolute; top: 60%; left: 2%; font-size: 2.5rem;">🌷</div>
+        <div class="decoration" style="position: absolute; bottom: 5%; right: 10%; font-size: 2rem;">🐦</div>
+        <div class="decoration" style="position: absolute; top: 30%; left: 90%; font-size: 2rem;">🍑🍓</div>
+        <div class="decoration" style="position: absolute; bottom: 40%; left: 8%; font-size: 2rem;">🦋</div>
+        
+        <h2 class="section-title fade-in">Projects & Work 🌻</h2>
         <div class="projects-grid">
             <div class="project-card fade-in">
-                <div class="project-image">🏗️</div>
+                <div class="project-image">🏗️🌿</div>
                 <div class="project-content">
-                    <h3>Sustainable Bridge Design</h3>
-                    <p>Designed an eco-friendly pedestrian bridge using recycled materials and sustainable engineering principles.</p>
+                    <h3>Sustainable Bridge Design 🌱</h3>
+                    <p>Designed an eco-friendly pedestrian bridge using recycled materials and sustainable engineering principles. 🌍</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">AutoCAD</span>
-                        <span class="tech-tag">Structural Analysis</span>
-                        <span class="tech-tag">Sustainability</span>
+                        <span class="tech-tag">AutoCAD 🌸</span>
+                        <span class="tech-tag">Structural Analysis 🌺</span>
+                        <span class="tech-tag">Sustainability 🌿</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">Documentation</a>
+                        <a href="#" class="project-link">View Details 🌷</a>
+                        <a href="#" class="project-link">Documentation 📝</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <div class="project-image">⚡</div>
+                <div class="project-image">⚡🌻</div>
                 <div class="project-content">
-                    <h3>Renewable Energy System</h3>
-                    <p>Developed a small-scale solar power system with battery storage for campus sustainability initiative.</p>
+                    <h3>Renewable Energy System 🌞</h3>
+                    <p>Developed a small-scale solar power system with battery storage for campus sustainability initiative. ☀️🔋</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Solar Energy</span>
-                        <span class="tech-tag">Circuit Design</span>
-                        <span class="tech-tag">MATLAB</span>
+                        <span class="tech-tag">Solar Energy ☀️</span>
+                        <span class="tech-tag">Circuit Design 🌸</span>
+                        <span class="tech-tag">MATLAB 🌺</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">Code</a>
+                        <a href="#" class="project-link">View Details 🌼</a>
+                        <a href="#" class="project-link">Code 💻</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <div class="project-image">🤖</div>
+                <div class="project-image">🤖🌿</div>
                 <div class="project-content">
-                    <h3>Automated Gardening System</h3>
-                    <p>Built an IoT-based system for monitoring and maintaining optimal growing conditions for plants.</p>
+                    <h3>Automated Gardening System 🌱</h3>
+                    <p>Built an IoT-based system for monitoring and maintaining optimal growing conditions for plants. 🌿💧</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Arduino</span>
-                        <span class="tech-tag">IoT</span>
-                        <span class="tech-tag">Python</span>
+                        <span class="tech-tag">Arduino 🌸</span>
+                        <span class="tech-tag">IoT 🌺</span>
+                        <span class="tech-tag">Python 🌻</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Details</a>
-                        <a href="#" class="project-link">GitHub</a>
+                        <a href="#" class="project-link">View Details 🌷</a>
+                        <a href="#" class="project-link">GitHub 🐙</a>
                     </div>
                 </div>
             </div>
@@ -583,22 +680,30 @@
     </section>
 
     <!-- Contact Section -->
-    <section id="contact" class="section">
-        <h2 class="section-title fade-in">Let's Grow Together</h2>
+    <section id="contact" class="section" style="position: relative;">
+        <!-- Contact section garden elements -->
+        <div class="decoration" style="position: absolute; top: 10%; left: 5%; font-size: 3rem;">🌹</div>
+        <div class="decoration" style="position: absolute; top: 20%; right: 3%; font-size: 2.5rem;">🌻</div>
+        <div class="decoration" style="position: absolute; bottom: 20%; left: 10%; font-size: 2rem;">🐝</div>
+        <div class="decoration" style="position: absolute; bottom: 10%; right: 8%; font-size: 2.5rem;">🌺</div>
+        <div class="decoration" style="position: absolute; top: 50%; left: 2%; font-size: 2rem;">🍎🍊</div>
+        <div class="decoration" style="position: absolute; top: 40%; right: 5%; font-size: 2rem;">🦋</div>
+        
+        <h2 class="section-title fade-in">Let's Grow Together 🌺🌻</h2>
         <div class="contact-content fade-in">
-            <p>I'm always excited to connect with fellow engineers, potential mentors, and organizations looking for passionate engineering talent. Whether you're offering internship opportunities, graduate program information, or just want to discuss engineering innovations, I'd love to hear from you!</p>
+            <p>I'm always excited to connect with fellow engineers, potential mentors, and organizations looking for passionate engineering talent. Whether you're offering internship opportunities, graduate program information, or just want to discuss engineering innovations, I'd love to hear from you! 🌱✨</p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <h3>📧 Email</h3>
+                    <h3>📧 Email 🌸</h3>
                     <a href="mailto:abraham.vega@email.com">abraham.vega@email.com</a>
                 </div>
                 <div class="contact-item">
-                    <h3>💼 LinkedIn</h3>
+                    <h3>💼 LinkedIn 🌿</h3>
                     <a href="#" target="_blank">linkedin.com/in/abrahamvega</a>
                 </div>
                 <div class="contact-item">
-                    <h3>🐙 GitHub</h3>
+                    <h3>🐙 GitHub 🌺</h3>
                     <a href="#" target="_blank">github.com/abrahamvega</a>
                 </div>
             </div>
