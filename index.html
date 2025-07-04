@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abraham's Portfolio</title>
+    <title>Abraham Vega - Engineering Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,395 +12,664 @@
             box-sizing: border-box;
         }
 
-        body {
-            font-family: Arial, sans-serif;
-            overflow: hidden; /* Hide scrollbars during splash */
+        :root {
+            --forest-green: #2d5016;
+            --sage-green: #87a96b;
+            --mint-green: #a8d5ba;
+            --cream: #f7f5e6;
+            --earth-brown: #8b4513;
+            --gold: #d4af37;
+            --soft-white: #fefefe;
+            --shadow: rgba(45, 80, 22, 0.1);
         }
 
-        /* Splash screen styles */
-        .splash-screen {
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, var(--cream) 0%, #e8f5e8 50%, var(--mint-green) 100%);
+            color: var(--forest-green);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Navigation */
+        .navbar {
             position: fixed;
             top: 0;
-            left: 0;
-            width: 100vw;
+            width: 100%;
+            background: rgba(247, 245, 230, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid var(--sage-green);
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            color: var(--forest-green);
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: var(--sage-green);
+            color: var(--soft-white);
+            transform: translateY(-2px);
+        }
+
+        /* Hero Section */
+        .hero {
             height: 100vh;
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 9999;
-            display: block;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            position: relative;
+            background: linear-gradient(135deg, var(--cream) 0%, #e8f5e8 100%);
         }
 
-        .splash-screen.hidden {
-            display: none;
-        }
-
-        /* Instruction text on second splash */
-        .instruction-text {
+        .hero::before {
+            content: '';
             position: absolute;
-            bottom: 50px;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%2387a96b" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="%23a8d5ba" opacity="0.4"/><circle cx="60" cy="80" r="1" fill="%232d5016" opacity="0.2"/><circle cx="40" cy="60" r="1.2" fill="%23d4af37" opacity="0.3"/></svg>');
+            animation: float 20s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(2deg); }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 800px;
+            padding: 2rem;
+        }
+
+        .hero h1 {
+            font-family: 'Playfair Display', serif;
+            font-size: 4rem;
+            font-weight: 700;
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            text-shadow: 2px 2px 4px var(--shadow);
+        }
+
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--sage-green);
+            margin-bottom: 2rem;
+            font-weight: 300;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            color: var(--forest-green);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: var(--sage-green);
+            color: var(--soft-white);
+            padding: 1rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px var(--shadow);
+        }
+
+        .cta-button:hover {
+            background: var(--forest-green);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px var(--shadow);
+        }
+
+        /* Section Styles */
+        .section {
+            padding: 5rem 0;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding-left: 2rem;
+            padding-right: 2rem;
+        }
+
+        .section-title {
+            font-family: 'Playfair Display', serif;
+            font-size: 3rem;
+            color: var(--forest-green);
+            text-align: center;
+            margin-bottom: 3rem;
+            position: relative;
+        }
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
             left: 50%;
             transform: translateX(-50%);
-            color: white;
-            font-size: 1.5rem;
-            font-weight: bold;
+            width: 100px;
+            height: 3px;
+            background: var(--sage-green);
+            border-radius: 2px;
+        }
+
+        /* About Section */
+        .about-content {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 4rem;
+            align-items: center;
+        }
+
+        .about-image {
+            position: relative;
+        }
+
+        .profile-card {
+            background: var(--soft-white);
+            padding: 2rem;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px var(--shadow);
             text-align: center;
-            text-shadow: 2px 2px 4px rgba(0,0,0,0.8);
-            animation: pulse 2s infinite;
-            z-index: 10000;
+            border: 3px solid var(--sage-green);
         }
 
-        @keyframes pulse {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.6; }
-        }
-
-        /* Page flip forward animation */
-        .page-flip-forward {
-            animation: pageFlipForward 1s ease-in-out forwards;
-            transform-origin: left center;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes pageFlipForward {
-            0% {
-                transform: perspective(1000px) rotateY(0deg);
-            }
-            50% {
-                transform: perspective(1000px) rotateY(-90deg);
-            }
-            100% {
-                transform: perspective(1000px) rotateY(-180deg);
-                opacity: 0;
-            }
-        }
-
-        /* Page flip backward animation */
-        .page-flip-backward {
-            animation: pageFlipBackward 1s ease-in-out forwards;
-            transform-origin: right center;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes pageFlipBackward {
-            0% {
-                transform: perspective(1000px) rotateY(0deg);
-            }
-            50% {
-                transform: perspective(1000px) rotateY(90deg);
-            }
-            100% {
-                transform: perspective(1000px) rotateY(180deg);
-                opacity: 0;
-            }
-        }
-
-        /* Page enter from right animation */
-        .page-enter-from-right {
-            animation: pageEnterFromRight 1s ease-in-out forwards;
-            transform-origin: right center;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes pageEnterFromRight {
-            0% {
-                transform: perspective(1000px) rotateY(180deg);
-                opacity: 0;
-            }
-            50% {
-                transform: perspective(1000px) rotateY(90deg);
-            }
-            100% {
-                transform: perspective(1000px) rotateY(0deg);
-                opacity: 1;
-            }
-        }
-
-        /* Page enter from left animation */
-        .page-enter-from-left {
-            animation: pageEnterFromLeft 1s ease-in-out forwards;
-            transform-origin: left center;
-            transform-style: preserve-3d;
-        }
-
-        @keyframes pageEnterFromLeft {
-            0% {
-                transform: perspective(1000px) rotateY(-180deg);
-                opacity: 0;
-            }
-            50% {
-                transform: perspective(1000px) rotateY(-90deg);
-            }
-            100% {
-                transform: perspective(1000px) rotateY(0deg);
-                opacity: 1;
-            }
-        }
-
-        /* Welcome page styles */
-        .welcome-page {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100vw;
-            height: 100vh;
-            background-image: url('images/blank_blue.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            z-index: 9998;
-            display: none;
-        }
-
-        /* Welcome page foreground image */
-        .welcome-image {
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            width: 85%;
-            height: auto;
-            max-width: 1000px;
-            object-fit: contain;
-        }
-
-        .welcome-page.show {
-            display: block;
-        }
-
-        /* Arrow navigation */
-        .arrow-nav {
-            position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-            font-size: 3rem;
-            color: white;
-            background: rgba(0,0,0,0.5);
-            border: none;
-            padding: 20px;
-            cursor: pointer;
-            border-radius: 10px;
-            transition: all 0.3s ease;
-            z-index: 10001;
-        }
-
-        .arrow-nav:hover {
-            background: rgba(0,0,0,0.8);
-            transform: translateY(-50%) scale(1.1);
-        }
-
-        .arrow-left {
-            left: 30px;
-        }
-
-        .arrow-right {
-            right: 30px;
-        }
-
-        /* Main content styles */
-        .main-content {
-            min-height: 100vh;
-            padding: 20px;
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
-            display: none;
+        .profile-img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--mint-green);
+            margin: 0 auto 1rem;
+            display: flex;
             align-items: center;
             justify-content: center;
-            flex-direction: column;
+            font-size: 4rem;
+            color: var(--forest-green);
+            border: 4px solid var(--sage-green);
         }
 
-        .main-content.show {
-            display: flex;
-        }
-
-        /* Second page styles */
-        .second-page {
-            min-height: 100vh;
-            padding: 20px;
-            background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
-            color: white;
-            display: none;
-            align-items: center;
-            justify-content: center;
-            flex-direction: column;
-        }
-
-        .second-page.show {
-            display: flex;
-        }
-
-        .main-content h1 {
-            font-size: 3rem;
+        .about-text h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            color: var(--forest-green);
             margin-bottom: 1rem;
-            text-align: center;
         }
 
-        .main-content p {
-            font-size: 1.2rem;
+        .about-text p {
+            margin-bottom: 1.5rem;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .skill-card {
+            background: var(--soft-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--sage-green);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .skill-card h3 {
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .skill-list {
+            list-style: none;
+        }
+
+        .skill-list li {
+            padding: 0.5rem 0;
+            color: var(--forest-green);
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-list li::before {
+            content: '🌱';
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects Section */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .project-card {
+            background: var(--soft-white);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 200px;
+            background: linear-gradient(45deg, var(--sage-green), var(--mint-green));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--soft-white);
+            font-size: 3rem;
+        }
+
+        .project-content {
+            padding: 2rem;
+        }
+
+        .project-content h3 {
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .project-content p {
+            margin-bottom: 1rem;
+            color: #666;
+        }
+
+        .tech-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .tech-tag {
+            background: var(--mint-green);
+            color: var(--forest-green);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .project-links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .project-link {
+            color: var(--sage-green);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+
+        .project-link:hover {
+            color: var(--forest-green);
+        }
+
+        /* Contact Section */
+        .contact-content {
             text-align: center;
             max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .contact-info {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-item {
+            background: var(--soft-white);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px var(--shadow);
+            transition: transform 0.3s ease;
+        }
+
+        .contact-item:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-item h3 {
+            color: var(--forest-green);
+            margin-bottom: 1rem;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .contact-item a {
+            color: var(--sage-green);
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .contact-item a:hover {
+            color: var(--forest-green);
+        }
+
+        /* Footer */
+        .footer {
+            background: var(--forest-green);
+            color: var(--soft-white);
+            text-align: center;
+            padding: 2rem 0;
+            margin-top: 5rem;
+        }
+
+        /* Mobile Responsiveness */
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .about-content {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+        }
+
+        /* Scroll animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: all 0.6s ease;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
-    <!-- First splash screen -->
-    <div id="splash1" class="splash-screen" style="background-image: url('images/clean_cover.png');"></div>
-    
-    <!-- Second splash screen -->
-    <div id="splash2" class="splash-screen hidden">
-        <div id="instructionText" class="instruction-text" style="display: none;">
-            Click anywhere or press any key to continue
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#home" class="logo">Abraham Vega</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
-    </div>
+    </nav>
 
-    <!-- Welcome page -->
-    <div id="welcomePage" class="welcome-page">
-        <img src="images/welcome_page.png" alt="Welcome" class="welcome-image">
-        <button id="welcomeLeftArrow" class="arrow-nav arrow-left" onclick="goToSplatterPageWithFlip()">←</button>
-        <button id="rightArrow" class="arrow-nav arrow-right">→</button>
-    </div>
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>Abraham Vega</h1>
+            <p class="subtitle">Growing Engineering Solutions</p>
+            <p>Passionate engineering student cultivating innovative solutions through technology and design. Like a garden, I believe great engineering requires patience, dedication, and the right environment to flourish.</p>
+            <a href="#about" class="cta-button">Explore My Journey</a>
+        </div>
+    </section>
 
-    <!-- Main website content -->
-    <div id="mainContent" class="main-content">
-        <h1>Welcome to My Engineering Portfolio</h1>
-        <p>This is where your main website content will go. You can add your projects, about section, contact information, and more!</p>
-    </div>
+    <!-- About Section -->
+    <section id="about" class="section">
+        <h2 class="section-title fade-in">About Me</h2>
+        <div class="about-content">
+            <div class="about-image fade-in">
+                <div class="profile-card">
+                    <div class="profile-img">🌿</div>
+                    <h3>Engineering Student</h3>
+                    <p>Cultivating Knowledge</p>
+                </div>
+            </div>
+            <div class="about-text fade-in">
+                <h3>Nurturing Innovation Through Engineering</h3>
+                <p>As an engineering student, I approach problem-solving like tending a garden - with patience, care, and a deep understanding of how different elements work together to create something beautiful and functional.</p>
+                <p>My passion lies in sustainable engineering solutions that not only solve immediate problems but also consider long-term environmental and social impacts. I believe technology should grow alongside nature, not against it.</p>
+                <p>Currently pursuing my engineering degree while actively seeking internship opportunities and preparing for graduate studies. I'm excited to plant seeds of innovation in the engineering field.</p>
+            </div>
+        </div>
+    </section>
 
-    <!-- Second page -->
-    <div id="secondPage" class="second-page">
-        <h1>Projects & Experience</h1>
-        <p>This is your second page! You can add your projects, skills, experience, or any other content here.</p>
-        <button id="backArrow" class="arrow-nav arrow-left" onclick="goToWelcomeWithFlip()">←</button>
-    </div>
+    <!-- Skills Section -->
+    <section id="skills" class="section">
+        <h2 class="section-title fade-in">Skills & Expertise</h2>
+        <div class="skills-grid">
+            <div class="skill-card fade-in">
+                <h3>🔧 Engineering Fundamentals</h3>
+                <ul class="skill-list">
+                    <li>Mathematics & Physics</li>
+                    <li>Problem Solving</li>
+                    <li>Design Thinking</li>
+                    <li>Systems Analysis</li>
+                    <li>Project Management</li>
+                </ul>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>💻 Technical Skills</h3>
+                <ul class="skill-list">
+                    <li>Programming (Python, Java, C++)</li>
+                    <li>CAD Software (AutoCAD, SolidWorks)</li>
+                    <li>MATLAB & Simulink</li>
+                    <li>Data Analysis</li>
+                    <li>Laboratory Techniques</li>
+                </ul>
+            </div>
+            <div class="skill-card fade-in">
+                <h3>🌱 Soft Skills</h3>
+                <ul class="skill-list">
+                    <li>Team Collaboration</li>
+                    <li>Communication</li>
+                    <li>Critical Thinking</li>
+                    <li>Adaptability</li>
+                    <li>Leadership</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section">
+        <h2 class="section-title fade-in">Projects & Work</h2>
+        <div class="projects-grid">
+            <div class="project-card fade-in">
+                <div class="project-image">🏗️</div>
+                <div class="project-content">
+                    <h3>Sustainable Bridge Design</h3>
+                    <p>Designed an eco-friendly pedestrian bridge using recycled materials and sustainable engineering principles.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">AutoCAD</span>
+                        <span class="tech-tag">Structural Analysis</span>
+                        <span class="tech-tag">Sustainability</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Details</a>
+                        <a href="#" class="project-link">Documentation</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-image">⚡</div>
+                <div class="project-content">
+                    <h3>Renewable Energy System</h3>
+                    <p>Developed a small-scale solar power system with battery storage for campus sustainability initiative.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Solar Energy</span>
+                        <span class="tech-tag">Circuit Design</span>
+                        <span class="tech-tag">MATLAB</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Details</a>
+                        <a href="#" class="project-link">Code</a>
+                    </div>
+                </div>
+            </div>
+            <div class="project-card fade-in">
+                <div class="project-image">🤖</div>
+                <div class="project-content">
+                    <h3>Automated Gardening System</h3>
+                    <p>Built an IoT-based system for monitoring and maintaining optimal growing conditions for plants.</p>
+                    <div class="tech-tags">
+                        <span class="tech-tag">Arduino</span>
+                        <span class="tech-tag">IoT</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                    <div class="project-links">
+                        <a href="#" class="project-link">View Details</a>
+                        <a href="#" class="project-link">GitHub</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section">
+        <h2 class="section-title fade-in">Let's Grow Together</h2>
+        <div class="contact-content fade-in">
+            <p>I'm always excited to connect with fellow engineers, potential mentors, and organizations looking for passionate engineering talent. Whether you're offering internship opportunities, graduate program information, or just want to discuss engineering innovations, I'd love to hear from you!</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <h3>📧 Email</h3>
+                    <a href="mailto:abraham.vega@email.com">abraham.vega@email.com</a>
+                </div>
+                <div class="contact-item">
+                    <h3>💼 LinkedIn</h3>
+                    <a href="#" target="_blank">linkedin.com/in/abrahamvega</a>
+                </div>
+                <div class="contact-item">
+                    <h3>🐙 GitHub</h3>
+                    <a href="#" target="_blank">github.com/abrahamvega</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>&copy; 2024 Abraham Vega. Growing engineering solutions with passion and purpose. 🌱</p>
+    </footer>
 
     <script>
-        // Wait for page to load
-        window.addEventListener('load', function() {
-            console.log('Page loaded, starting script...');
-            const splash1 = document.getElementById('splash1');
-            const splash2 = document.getElementById('splash2');
-            const mainContent = document.getElementById('mainContent');
-            const welcomePage = document.getElementById('welcomePage');
-            const secondPage = document.getElementById('secondPage');
-            const rightArrow = document.getElementById('rightArrow');
-            const instructionText = document.getElementById('instructionText');
-            let canProceed = false;
-            
-            console.log('Elements found:', {
-                splash1: !!splash1,
-                splash2: !!splash2,
-                welcomePage: !!welcomePage,
-                instructionText: !!instructionText
-            });
-
-            // Randomly select one of the 8 splatter images
-            const randomSplatterNumber = Math.floor(Math.random() * 8) + 1;
-            const selectedSplatterImage = `images/splatter_${randomSplatterNumber}.png`;
-            console.log('Selected splatter image:', selectedSplatterImage);
-            
-            // Set the random splatter image as background for second splash
-            splash2.style.backgroundImage = `url('${selectedSplatterImage}')`;
-            splash2.style.backgroundSize = 'cover';
-            splash2.style.backgroundPosition = 'center';
-            splash2.style.backgroundRepeat = 'no-repeat';
-
-            console.log('Starting 3-second timer...');
-            // After 3 seconds, BAM! Switch to random splatter image instantly
-            setTimeout(() => {
-                console.log('3 seconds elapsed, switching to splatter image');
-                splash1.classList.add('hidden');
-                splash2.classList.remove('hidden');
-                // Show instruction text after a brief delay
-                setTimeout(() => {
-                    console.log('Showing instruction text and enabling interactions');
-                    instructionText.style.display = 'block';
-                    canProceed = true;
-                }, 500);
-            }, 3000);
-
-            // Function to proceed to welcome page with page flip animation
-            function proceedToWelcome() {
-                if (canProceed) {
-                    // Remove event listeners to prevent multiple triggers
-                    document.removeEventListener('click', proceedToWelcome);
-                    document.removeEventListener('keydown', proceedToWelcome);
-                    
-                    // Start the page flip animation
-                    splash2.classList.add('page-flip-forward');
-                    welcomePage.classList.add('show', 'page-enter-from-right');
-                    document.body.style.overflow = 'auto';
-                    
-                    // Hide the splash screen after animation completes
-                    setTimeout(() => {
-                        splash2.classList.add('hidden');
-                    }, 1000);
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
                 }
-            }
+            });
+        });
 
-            // Listen for click anywhere on screen
-            document.addEventListener('click', proceedToWelcome);
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
 
-            // Listen for any key press
-            document.addEventListener('keydown', proceedToWelcome);
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
 
-            // Arrow navigation handler for right arrow
-            rightArrow.addEventListener('click', function() {
-                goToSecondPageWithFlip();
+        // Observe all fade-in elements
+        document.querySelectorAll('.fade-in').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Add active navigation highlighting
+        window.addEventListener('scroll', () => {
+            const sections = document.querySelectorAll('section[id]');
+            const navLinks = document.querySelectorAll('.nav-links a');
+            
+            let current = '';
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (scrollY >= (sectionTop - 200)) {
+                    current = section.getAttribute('id');
+                }
             });
 
-            // Function to navigate to main content
-            window.goToMainContent = function() {
-                welcomePage.classList.remove('show');
-                mainContent.classList.add('show');
-            };
-
-            // Function to navigate to second page with page flip
-            window.goToSecondPageWithFlip = function() {
-                // Show the new page immediately with entrance animation
-                secondPage.classList.add('show', 'page-enter-from-right');
-                // Start the flip animation on the current page
-                welcomePage.classList.add('page-flip-forward');
-                setTimeout(() => {
-                    welcomePage.classList.remove('show', 'page-flip-forward');
-                    secondPage.classList.remove('page-enter-from-right');
-                }, 1000);
-            };
-
-            // Function to navigate to second page
-            window.goToSecondPage = function() {
-                welcomePage.classList.remove('show');
-                secondPage.classList.add('show');
-            };
-
-            // Function to navigate back to welcome page with page flip
-            window.goToWelcomeWithFlip = function() {
-                // Show the new page immediately with entrance animation
-                welcomePage.classList.add('show', 'page-enter-from-left');
-                // Start the flip animation on the current page
-                secondPage.classList.add('page-flip-backward');
-                setTimeout(() => {
-                    secondPage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
-                    welcomePage.classList.remove('page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
-                }, 1000);
-            };
-
-            // Function to navigate back to welcome page
-            window.goToWelcome = function() {
-                secondPage.classList.remove('show');
-                mainContent.classList.remove('show');
-                welcomePage.classList.add('show');
-            };
-
-            // Function to navigate to splatter page (back to splatter images)
-            window.goToSplatterPage = function() {
-                welcomePage.classList.remove('show');
-                splash2.classList.remove('hidden');
-                canProceed = true;
-                instructionText.style.display = 'block';
-            };
-
-            // Function to navigate back to splatter page with page flip
-            window.goToSplatterPageWithFlip = function() {
+            navLinks.forEach(link => {
+                link.style.background = '';
+                link.style.color = '';
+                if (link.getAttribute('href') === `#${current}`) {
+                    link.style.background = 'var(--sage-green)';
+                    link.style.color = 'var(--soft-white)';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
                 // Start the flip animation on the welcome page
                 welcomePage.classList.add('page-flip-backward');
                 
