@@ -3,100 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abraham Vega - Engineering Portfolio</title>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <title>Abraham Vega - Portfolio</title>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@300;400;600;700&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
-
-        /* Flower and Nature Decorations */
-        .decoration {
-            position: absolute;
-            z-index: 1;
-            pointer-events: none;
-            animation: float 15s ease-in-out infinite;
-        }
-
-        .flower-pink {
-            content: url('images/flower_pink.svg');
-            width: 60px;
-            height: auto;
-            top: 20%;
-            left: 5%;
-            animation-duration: 18s;
-        }
-
-        .flower-blue {
-            content: url('images/flower_blue.svg');
-            width: 50px;
-            height: auto;
-            top: 50%;
-            right: 8%;
-            animation-duration: 16s;
-        }
-
-        .sunflower {
-            content: url('images/sunflower.svg');
-            width: 70px;
-            height: auto;
-            bottom: 10%;
-            left: 20%;
-            animation-duration: 20s;
-        }
-
-        .fruit-hanging {
-            content: url('images/fruit_mix.svg');
-            width: 40px;
-            height: auto;
-            top: 15%;
-            right: 5%;
-            animation-duration: 22s;
-        }
-
-        .bee {
-            content: url('images/bee.svg');
-            width: 30px;
-            height: auto;
-            top: 70%;
-            left: 10%;
-            animation-duration: 14s;
-        }
-
-        .hummingbird {
-            content: url('images/hummingbird.svg');
-            width: 50px;
-            height: auto;
-            bottom: 18%;
-            right: 15%;
-            animation-duration: 18s;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px); }
-            50% { transform: translateY(-10px); }
-        }
-
-    
-        :root {
-            --forest-green: #2d5016;
-            --sage-green: #87a96b;
-            --mint-green: #a8d5ba;
-            --cream: #f7f5e6;
-            --earth-brown: #8b4513;
-            --gold: #d4af37;
-            --soft-white: #fefefe;
-            --shadow: rgba(45, 80, 22, 0.1);
-        }
 
         body {
-            font-family: 'Inter', sans-serif;
-            background: linear-gradient(135deg, var(--cream) 0%, #e8f5e8 50%, var(--mint-green) 100%);
-            color: var(--forest-green);
-            line-height: 1.6;
+            font-family: 'Nunito', sans-serif;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 50%, #fff8dc 100%);
+            color: #2d4a2d;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
@@ -105,11 +25,13 @@
             position: fixed;
             top: 0;
             width: 100%;
-            background: rgba(247, 245, 230, 0.95);
-            backdrop-filter: blur(10px);
+            background: linear-gradient(135deg, rgba(173, 216, 230, 0.95), rgba(135, 206, 235, 0.9)), 
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80"><defs><pattern id="clouds" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse"><ellipse cx="15" cy="20" rx="12" ry="6" fill="rgba(255,255,255,0.7)"/><ellipse cx="10" cy="25" rx="8" ry="4" fill="rgba(255,255,255,0.5)"/><ellipse cx="20" cy="18" rx="6" ry="3" fill="rgba(255,255,255,0.6)"/><ellipse cx="45" cy="22" rx="14" ry="7" fill="rgba(255,255,255,0.6)"/><ellipse cx="40" cy="28" rx="9" ry="5" fill="rgba(255,255,255,0.4)"/><ellipse cx="50" cy="16" rx="7" ry="4" fill="rgba(255,255,255,0.5)"/><ellipse cx="70" cy="25" rx="10" ry="5" fill="rgba(255,255,255,0.6)"/><ellipse cx="65" cy="30" rx="6" ry="3" fill="rgba(255,255,255,0.4)"/></pattern></defs><rect width="400" height="80" fill="url(%23clouds)"/></svg>');
+            backdrop-filter: blur(15px);
             z-index: 1000;
-            padding: 1rem 0;
-            border-bottom: 2px solid var(--sage-green);
+            padding: 1.5rem 0;
+            border-bottom: 3px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 8px 32px rgba(173, 216, 230, 0.4);
         }
 
         .nav-container {
@@ -122,11 +44,13 @@
         }
 
         .logo {
-            font-family: 'Playfair Display', serif;
+            font-family: 'Fredoka One', cursive;
             font-size: 1.8rem;
-            font-weight: 700;
-            color: var(--forest-green);
+            font-weight: 400;
+            color: #2d4a2d;
             text-decoration: none;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
         }
 
         .nav-links {
@@ -137,28 +61,395 @@
 
         .nav-links a {
             text-decoration: none;
-            color: var(--forest-green);
-            font-weight: 500;
-            transition: all 0.3s ease;
-            padding: 0.5rem 1rem;
-            border-radius: 20px;
+            color: #2d4a2d;
+            font-family: 'Fredoka One', cursive;
+            font-weight: 400;
+            transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+            padding: 0.8rem 1.8rem;
+            letter-spacing: 1px;
+            font-size: 1rem;
+            position: relative;
+            border-radius: 25px;
+            background: rgba(255, 255, 255, 0.7);
+            border: 2px solid rgba(255, 255, 255, 0.5);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 4px 15px rgba(135, 206, 235, 0.2);
         }
 
         .nav-links a:hover {
-            background: var(--sage-green);
-            color: var(--soft-white);
-            transform: translateY(-2px);
+            color: #ffffff;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #87ceeb, #98fb98);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
+            border-color: rgba(255, 255, 255, 0.8);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .nav-links a::before {
+            content: '';
+            position: absolute;
+            top: -2px;
+            left: -2px;
+            right: -2px;
+            bottom: -2px;
+            background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+            border-radius: 27px;
+            z-index: -1;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .nav-links a:hover::before {
+            opacity: 1;
+            animation: shimmer 1.5s ease-in-out infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-100%) rotate(45deg); }
+            100% { transform: translateX(200%) rotate(45deg); }
+        }
+
+        @keyframes cloudFloat {
+            0%, 100% { transform: translateX(0px) translateY(0px); }
+            25% { transform: translateX(10px) translateY(-5px); }
+            50% { transform: translateX(-5px) translateY(-10px); }
+            75% { transform: translateX(-10px) translateY(-5px); }
         }
 
         /* Hero Section */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
+            background: linear-gradient(135deg, #87ceeb 0%, #98fb98 50%, #ffd700 100%);
             position: relative;
-            background: linear-gradient(135deg, var(--cream) 0%, #e8f5e8 100%);
+            overflow: hidden;
+            padding-top: 120px;
+        }
+
+        /* Cloud Images */
+        .cloud-left-1 {
+            position: absolute;
+            left: -50px;
+            top: 20%;
+            width: 200px;
+            height: 120px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.8;
+            animation: cloudDrift 25s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-left-2 {
+            position: absolute;
+            left: -30px;
+            top: 60%;
+            width: 180px;
+            height: 100px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.7;
+            animation: cloudDrift 30s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-right-1 {
+            position: absolute;
+            right: -50px;
+            top: 15%;
+            width: 190px;
+            height: 110px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.8;
+            animation: cloudDrift 35s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-right-2 {
+            position: absolute;
+            right: -40px;
+            top: 70%;
+            width: 210px;
+            height: 130px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.7;
+            animation: cloudDrift 28s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        /* Additional clouds for more atmosphere */
+        .cloud-center-1 {
+            position: absolute;
+            left: 10%;
+            top: 10%;
+            width: 150px;
+            height: 90px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.5;
+            animation: cloudDrift 40s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-center-2 {
+            position: absolute;
+            right: 15%;
+            top: 85%;
+            width: 160px;
+            height: 95px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.6;
+            animation: cloudDrift 33s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-top-center {
+            position: absolute;
+            left: 50%;
+            top: 5%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 110px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.4;
+            animation: cloudDrift 45s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-bottom-center {
+            position: absolute;
+            left: 40%;
+            top: 90%;
+            width: 170px;
+            height: 100px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.5;
+            animation: cloudDrift 38s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-left-3 {
+            position: absolute;
+            left: -60px;
+            top: 40%;
+            width: 140px;
+            height: 85px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.6;
+            animation: cloudDrift 32s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-right-3 {
+            position: absolute;
+            right: -65px;
+            top: 45%;
+            width: 165px;
+            height: 100px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.6;
+            animation: cloudDrift 42s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        /* Hero Section Additional Clouds */
+        .cloud-left-4 {
+            position: absolute;
+            left: -40px;
+            top: 25%;
+            width: 130px;
+            height: 80px;
+            background: url('images/cloud3.png') no-repeat;
+            background-size: contain;
+            opacity: 0.7;
+            animation: cloudDrift 37s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-left-5 {
+            position: absolute;
+            left: -70px;
+            top: 75%;
+            width: 150px;
+            height: 90px;
+            background: url('images/cloud4.png') no-repeat;
+            background-size: contain;
+            opacity: 0.5;
+            animation: cloudDrift 44s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-right-4 {
+            position: absolute;
+            right: -55px;
+            top: 25%;
+            width: 140px;
+            height: 85px;
+            background: url('images/cloud3.png') no-repeat;
+            background-size: contain;
+            opacity: 0.6;
+            animation: cloudDrift 39s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-right-5 {
+            position: absolute;
+            right: -75px;
+            top: 55%;
+            width: 175px;
+            height: 105px;
+            background: url('images/cloud4.png') no-repeat;
+            background-size: contain;
+            opacity: 0.5;
+            animation: cloudDrift 46s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-extra-1 {
+            position: absolute;
+            left: 25%;
+            top: 25%;
+            width: 120px;
+            height: 75px;
+            background: url('images/cloud3.png') no-repeat;
+            background-size: contain;
+            opacity: 0.4;
+            animation: cloudDrift 41s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-extra-2 {
+            position: absolute;
+            right: 25%;
+            top: 65%;
+            width: 135px;
+            height: 80px;
+            background: url('images/cloud4.png') no-repeat;
+            background-size: contain;
+            opacity: 0.45;
+            animation: cloudDrift 47s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        /* Fill Clouds to Cover Blank Spaces */
+        .cloud-fill-1 {
+            position: absolute;
+            left: 5%;
+            top: 50%;
+            width: 110px;
+            height: 70px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.35;
+            animation: cloudDrift 34s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-fill-2 {
+            position: absolute;
+            right: 5%;
+            top: 40%;
+            width: 125px;
+            height: 75px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.4;
+            animation: cloudDrift 38s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-fill-3 {
+            position: absolute;
+            left: 35%;
+            top: 15%;
+            width: 100px;
+            height: 60px;
+            background: url('images/cloud3.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 43s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-fill-4 {
+            position: absolute;
+            right: 35%;
+            top: 80%;
+            width: 115px;
+            height: 65px;
+            background: url('images/cloud4.png') no-repeat;
+            background-size: contain;
+            opacity: 0.35;
+            animation: cloudDrift 36s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .cloud-fill-5 {
+            position: absolute;
+            left: 60%;
+            top: 35%;
+            width: 90px;
+            height: 55px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.25;
+            animation: cloudDrift 40s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .cloud-fill-6 {
+            position: absolute;
+            left: 15%;
+            top: 75%;
+            width: 105px;
+            height: 65px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 45s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        /* Creature and Ponyo Images */
+        .creature-image {
+            position: absolute;
+            left: -10px;
+            bottom: 20px;
+            width: 300px;
+            height: auto;
+            background: url('images/creature.png') no-repeat;
+            background-size: contain;
+            z-index: 10;
+            opacity: 0.9;
+        }
+
+        .ponyo-image {
+            position: absolute;
+            right: -10px;
+            bottom: 20px;
+            width: 300px;
+            height: auto;
+            background: url('images/ponyo.png') no-repeat;
+            background-size: contain;
+            z-index: 10;
+            opacity: 0.9;
+        }
+
+        @keyframes cloudDrift {
+            0%, 100% { transform: translateX(0px) translateY(0px); }
+            25% { transform: translateX(15px) translateY(-10px); }
+            50% { transform: translateX(-10px) translateY(-20px); }
+            75% { transform: translateX(-20px) translateY(-10px); }
         }
 
         .hero::before {
@@ -168,138 +459,383 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="20" cy="20" r="2" fill="%2387a96b" opacity="0.3"/><circle cx="80" cy="40" r="1.5" fill="%23a8d5ba" opacity="0.4"/><circle cx="60" cy="80" r="1" fill="%232d5016" opacity="0.2"/><circle cx="40" cy="60" r="1.2" fill="%23d4af37" opacity="0.3"/></svg>');
-            animation: float 20s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0px) rotate(0deg); }
-            50% { transform: translateY(-20px) rotate(2deg); }
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><g filter="url(%23blur)" opacity="0.7"><ellipse cx="120" cy="80" rx="60" ry="25" fill="rgba(255,255,255,0.8)"/><ellipse cx="100" cy="85" rx="45" ry="18" fill="rgba(255,255,255,0.6)"/><ellipse cx="140" cy="75" rx="35" ry="15" fill="rgba(255,255,255,0.7)"/><ellipse cx="600" cy="120" rx="80" ry="35" fill="rgba(255,255,255,0.6)"/><ellipse cx="580" cy="125" rx="50" ry="20" fill="rgba(255,255,255,0.8)"/><ellipse cx="620" cy="115" rx="40" ry="18" fill="rgba(255,255,255,0.5)"/><ellipse cx="300" cy="60" rx="70" ry="30" fill="rgba(255,255,255,0.7)"/><ellipse cx="280" cy="65" rx="45" ry="20" fill="rgba(255,255,255,0.6)"/><ellipse cx="320" cy="55" rx="35" ry="16" fill="rgba(255,255,255,0.8)"/><ellipse cx="450" cy="180" rx="55" ry="22" fill="rgba(255,255,255,0.6)"/><ellipse cx="435" cy="185" rx="35" ry="15" fill="rgba(255,255,255,0.7)"/><ellipse cx="80" cy="450" rx="65" ry="28" fill="rgba(255,255,255,0.5)"/><ellipse cx="60" cy="455" rx="40" ry="18" fill="rgba(255,255,255,0.7)"/><ellipse cx="650" cy="400" rx="75" ry="32" fill="rgba(255,255,255,0.6)"/><ellipse cx="630" cy="405" rx="50" ry="20" fill="rgba(255,255,255,0.8)"/></g></svg>') no-repeat;
+            background-size: cover;
+            opacity: 0.8;
+            animation: cloudFloat 20s ease-in-out infinite;
         }
 
         .hero-content {
-            position: relative;
-            z-index: 10;
             max-width: 800px;
-            padding: 2rem;
+            padding: 3rem 4rem;
+            position: relative;
+            z-index: 2;
+            background: linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.1)), 
+                        url('images/SpiritedAway.png');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            border-radius: 30px;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
+            image-rendering: -webkit-optimize-contrast;
+            image-rendering: crisp-edges;
+            backdrop-filter: blur(1px);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
         }
 
         .hero h1 {
-            font-family: 'Playfair Display', serif;
-            font-size: 4rem;
-            font-weight: 700;
-            color: var(--forest-green);
-            margin-bottom: 1rem;
-            text-shadow: 2px 2px 4px var(--shadow);
+            font-family: 'Fredoka One', cursive;
+            font-size: 3rem;
+            font-weight: 400;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d, #87ceeb, #98fb98, #dda0dd, #ff69b4, #ff6347);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1.5rem;
+            letter-spacing: 1px;
+            line-height: 1.2;
+            animation: rainbowShift 4s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.7));
+            -webkit-text-stroke: 1px white;
+            text-stroke: 1px white;
+            text-align: center;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .hero .subtitle {
-            font-size: 1.5rem;
-            color: var(--sage-green);
+            font-family: 'Comfortaa', cursive;
+            font-size: 1.8rem;
+            background: linear-gradient(45deg, #ff69b4, #87ceeb, #98fb98, #ffd93d, #ff6b6b, #dda0dd, #ff6347);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             margin-bottom: 2rem;
-            font-weight: 300;
+            font-weight: 700;
+            letter-spacing: 1px;
+            animation: rainbowShift 3.5s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+            -webkit-text-stroke: 1px white;
+            text-stroke: 1px white;
+            text-align: center;
+            max-width: 100%;
+            word-wrap: break-word;
         }
 
         .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            color: var(--forest-green);
+            font-size: 1.6rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #98fb98, #ffd93d, #ff6b6b, #87ceeb, #ff69b4, #dda0dd, #ff6347);
+            background-size: 300% 300%;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            line-height: 1.7;
+            max-width: 90%;
+            animation: rainbowShift 4.5s ease-in-out infinite;
+            filter: drop-shadow(2px 2px 4px rgba(0, 0, 0, 0.8));
+            -webkit-text-stroke: 1px white;
+            text-stroke: 1px white;
+            text-align: center;
+            word-wrap: break-word;
+        }
+
+        @keyframes rainbowShift {
+            0%, 100% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
         }
 
         .cta-button {
             display: inline-block;
-            background: var(--sage-green);
-            color: var(--soft-white);
-            padding: 1rem 2rem;
-            border-radius: 30px;
+            background: linear-gradient(45deg, #ff6b6b, #ffd93d);
+            color: #ffffff;
+            padding: 1.2rem 3rem;
+            border: none;
+            border-radius: 50px;
             text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            box-shadow: 0 4px 15px var(--shadow);
+            font-weight: 700;
+            font-family: 'Comfortaa', cursive;
+            letter-spacing: 1px;
+            transition: all 0.4s ease;
+            position: relative;
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .cta-button:hover {
-            background: var(--forest-green);
-            transform: translateY(-3px);
-            box-shadow: 0 8px 25px var(--shadow);
+            background: linear-gradient(45deg, #ffd93d, #ff6b6b);
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
         }
 
-        /* Section Styles */
+        /* Sections */
         .section {
-            padding: 5rem 0;
-            max-width: 1200px;
+            padding: 6rem 0;
+            max-width: 1400px;
             margin: 0 auto;
-            padding-left: 2rem;
-            padding-right: 2rem;
+            padding-left: 4rem;
+            padding-right: 4rem;
+            position: relative;
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 50%, #fff8dc 100%);
+            border-radius: 20px;
+            margin-bottom: 2rem;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        /* Section Cloud Styles */
+        .section .cloud-left-1 {
+            position: absolute;
+            left: -50px;
+            top: 20%;
+            width: 180px;
+            height: 110px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 30s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .section .cloud-left-2 {
+            position: absolute;
+            left: -50px;
+            top: 20%;
+            width: 180px;
+            height: 110px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 30s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .section .cloud-left-3 {
+            position: absolute;
+            left: -50px;
+            top: 20%;
+            width: 180px;
+            height: 110px;
+            background: url('images/cloud3.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 30s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .section .cloud-left-4 {
+            position: absolute;
+            left: -50px;
+            top: 20%;
+            width: 180px;
+            height: 110px;
+            background: url('images/cloud4.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 30s ease-in-out infinite;
+            z-index: 1;
+        }
+
+        .section .cloud-right-1 {
+            position: absolute;
+            right: -50px;
+            top: 70%;
+            width: 170px;
+            height: 100px;
+            background: url('images/cloud1.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 35s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .section .cloud-right-2 {
+            position: absolute;
+            right: -50px;
+            top: 70%;
+            width: 170px;
+            height: 100px;
+            background: url('images/cloud2.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 35s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .section .cloud-right-3 {
+            position: absolute;
+            right: -50px;
+            top: 70%;
+            width: 170px;
+            height: 100px;
+            background: url('images/cloud3.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 35s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        .section .cloud-right-4 {
+            position: absolute;
+            right: -50px;
+            top: 70%;
+            width: 170px;
+            height: 100px;
+            background: url('images/cloud4.png') no-repeat;
+            background-size: contain;
+            opacity: 0.3;
+            animation: cloudDrift 35s ease-in-out infinite reverse;
+            z-index: 1;
+        }
+
+        /* Variation in positioning for different sections */
+        .section .cloud-left-2 {
+            top: 30%;
+            left: -40px;
+            width: 160px;
+            height: 95px;
+            animation: cloudDrift 28s ease-in-out infinite;
+        }
+
+        .section .cloud-right-2 {
+            top: 50%;
+            right: -60px;
+            width: 190px;
+            height: 115px;
+            animation: cloudDrift 32s ease-in-out infinite reverse;
+        }
+
+        .section .cloud-left-3 {
+            top: 40%;
+            left: -30px;
+            width: 150px;
+            height: 90px;
+            animation: cloudDrift 26s ease-in-out infinite;
+        }
+
+        .section .cloud-right-3 {
+            top: 25%;
+            right: -45px;
+            width: 185px;
+            height: 110px;
+            animation: cloudDrift 29s ease-in-out infinite reverse;
+        }
+
+        .section .cloud-left-4 {
+            top: 60%;
+            left: -55px;
+            width: 175px;
+            height: 105px;
+            animation: cloudDrift 33s ease-in-out infinite;
+        }
+
+        .section .cloud-right-4 {
+            top: 35%;
+            right: -35px;
+            width: 165px;
+            height: 100px;
+            animation: cloudDrift 31s ease-in-out infinite reverse;
         }
 
         .section-title {
-            font-family: 'Playfair Display', serif;
-            font-size: 3rem;
-            color: var(--forest-green);
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.8rem;
+            color: #2d4a2d;
             text-align: center;
-            margin-bottom: 3rem;
+            margin-bottom: 4rem;
+            font-weight: 400;
+            letter-spacing: 1px;
             position: relative;
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
         }
 
         .section-title::after {
-            content: '';
+            content: '✨';
             position: absolute;
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 100px;
-            height: 3px;
-            background: var(--sage-green);
-            border-radius: 2px;
+            right: -3rem;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 2rem;
+            animation: sparkle 2s ease-in-out infinite;
+        }
+
+        @keyframes sparkle {
+            0%, 100% { opacity: 1; transform: translateY(-50%) scale(1); }
+            50% { opacity: 0.5; transform: translateY(-50%) scale(1.2); }
         }
 
         /* About Section */
         .about-content {
             display: grid;
             grid-template-columns: 1fr 2fr;
-            gap: 4rem;
-            align-items: center;
-        }
-
-        .about-image {
-            position: relative;
+            gap: 3rem;
+            align-items: start;
         }
 
         .profile-card {
-            background: var(--soft-white);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px var(--shadow);
+            background: linear-gradient(135deg, #87ceeb, #98fb98);
+            padding: 3.5rem;
+            min-height: 600px;
+            width: 100%;
+            max-width: 400px;
+            border: none;
+            border-radius: 25px;
             text-align: center;
-            border: 3px solid var(--sage-green);
+            color: #ffffff;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 15px 35px rgba(135, 206, 235, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .profile-card::before {
+            content: '🌸';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
         }
 
         .profile-img {
-            width: 200px;
-            height: 200px;
+            width: 280px;
+            height: 280px;
+            margin: 0 auto 1.5rem;
             border-radius: 50%;
-            background: var(--mint-green);
-            margin: 0 auto 1rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-            color: var(--forest-green);
-            border: 4px solid var(--sage-green);
+            background: #e9ecef;
+            object-fit: cover;
+            background-position: 50% 65%;
         }
 
         .about-text h3 {
-            font-family: 'Playfair Display', serif;
-            font-size: 2rem;
-            color: var(--forest-green);
-            margin-bottom: 1rem;
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: #2d4a2d;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
         }
 
         .about-text p {
-            margin-bottom: 1.5rem;
+            margin-bottom: 2rem;
+            color: #2d4a2d;
             font-size: 1.1rem;
             line-height: 1.8;
+            font-weight: 400;
         }
 
         /* Skills Section */
@@ -310,22 +846,31 @@
         }
 
         .skill-card {
-            background: var(--soft-white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px var(--shadow);
-            transition: transform 0.3s ease;
-            border-left: 5px solid var(--sage-green);
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 248, 255, 0.9));
+            padding: 3rem;
+            border: none;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 10px 30px rgba(135, 206, 235, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(135, 206, 235, 0.3);
         }
 
         .skill-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) rotate(2deg);
+            box-shadow: 0 20px 50px rgba(135, 206, 235, 0.3);
+            border-color: rgba(152, 251, 152, 0.6);
         }
 
         .skill-card h3 {
-            color: var(--forest-green);
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Comfortaa', cursive;
+            color: #2d4a2d;
+            margin-bottom: 2rem;
+            font-size: 1.4rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(135, 206, 235, 0.3);
         }
 
         .skill-list {
@@ -333,16 +878,26 @@
         }
 
         .skill-list li {
-            padding: 0.5rem 0;
-            color: var(--forest-green);
+            padding: 1rem 0;
+            color: #2d4a2d;
+            font-size: 1rem;
+            font-weight: 500;
+            border-bottom: 1px solid rgba(135, 206, 235, 0.3);
             position: relative;
-            padding-left: 1.5rem;
+            padding-left: 2rem;
         }
 
         .skill-list li::before {
-            content: '🌱';
+            content: '🌿';
             position: absolute;
             left: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 1rem;
+        }
+
+        .skill-list li:last-child {
+            border-bottom: none;
         }
 
         /* Projects Section */
@@ -353,25 +908,53 @@
         }
 
         .project-card {
-            background: var(--soft-white);
-            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 248, 255, 0.9));
+            border: none;
+            border-radius: 25px;
             overflow: hidden;
-            box-shadow: 0 5px 20px var(--shadow);
-            transition: transform 0.3s ease;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(135, 206, 235, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .project-card::before {
+            content: '✨';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.2rem;
+            z-index: 2;
+            animation: sparkle 2s ease-in-out infinite;
         }
 
         .project-card:hover {
-            transform: translateY(-5px);
+            transform: translateY(-15px) rotate(-2deg);
+            box-shadow: 0 25px 60px rgba(135, 206, 235, 0.3);
+            border-color: rgba(152, 251, 152, 0.6);
         }
 
         .project-image {
             height: 200px;
-            background: linear-gradient(45deg, var(--sage-green), var(--mint-green));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--soft-white);
-            font-size: 3rem;
+            background-size: contain;
+            background-position: center;
+            background-repeat: no-repeat;
+        }
+
+        /* Individual project images */
+        .project-chansey {
+            background-image: url('images/Chansey_Portfolio.png');
+            background-size: 60%;
+            background-position: center top;
+        }
+
+        .project-superscalar {
+            background-image: url('images/pipeline.png');
+        }
+
+        .project-os {
+            background-image: url('images/threading.png');
         }
 
         .project-content {
@@ -379,14 +962,20 @@
         }
 
         .project-content h3 {
-            color: var(--forest-green);
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Comfortaa', cursive;
+            color: #2d4a2d;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(135, 206, 235, 0.3);
         }
 
         .project-content p {
-            margin-bottom: 1rem;
-            color: #666;
+            margin-bottom: 2rem;
+            color: #2d4a2d;
+            line-height: 1.7;
+            font-weight: 400;
         }
 
         .tech-tags {
@@ -397,12 +986,15 @@
         }
 
         .tech-tag {
-            background: var(--mint-green);
-            color: var(--forest-green);
-            padding: 0.3rem 0.8rem;
-            border-radius: 15px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            background: linear-gradient(45deg, #87ceeb, #98fb98);
+            color: #ffffff;
+            padding: 0.5rem 1rem;
+            border: none;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+            font-weight: 600;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
         }
 
         .project-links {
@@ -411,14 +1003,93 @@
         }
 
         .project-link {
-            color: var(--sage-green);
+            color: #8B4513;
             text-decoration: none;
-            font-weight: 600;
-            transition: color 0.3s ease;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            letter-spacing: 0.5px;
+            font-size: 0.9rem;
+            position: relative;
+            padding: 0.5rem 1rem;
+            border-radius: 15px;
+            background: linear-gradient(135deg, rgba(205, 133, 63, 0.15), rgba(160, 82, 45, 0.15));
+            border: 2px solid rgba(139, 69, 19, 0.3);
         }
 
         .project-link:hover {
-            color: var(--forest-green);
+            color: #ffffff;
+            background: linear-gradient(45deg, #CD853F, #A0522D);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(139, 69, 19, 0.4);
+            border-color: #8B4513;
+        }
+
+        /* Studio Section */
+        .studio-content {
+            text-align: center;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .studio-content p {
+            font-size: 1.2rem;
+            color: #2d4a2d;
+            margin-bottom: 3rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .studio-projects {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            text-align: left;
+        }
+
+        .studio-projects li {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 248, 255, 0.9));
+            padding: 3rem;
+            border: none;
+            border-radius: 25px;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(135, 206, 235, 0.2);
+            position: relative;
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(135, 206, 235, 0.3);
+        }
+
+        .studio-projects li::before {
+            content: '🎨';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .studio-projects li:hover {
+            transform: translateY(-10px) rotate(1deg);
+            box-shadow: 0 25px 60px rgba(135, 206, 235, 0.3);
+            border-color: rgba(152, 251, 152, 0.6);
+        }
+
+        .studio-projects h3 {
+            font-family: 'Comfortaa', cursive;
+            color: #2d4a2d;
+            margin-bottom: 1.5rem;
+            font-size: 1.5rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(135, 206, 235, 0.3);
+        }
+
+        .studio-projects p {
+            color: #2d4a2d;
+            line-height: 1.7;
+            font-weight: 400;
+            margin-bottom: 0;
+            text-align: left;
         }
 
         /* Contact Section */
@@ -436,50 +1107,98 @@
         }
 
         .contact-item {
-            background: var(--soft-white);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: 0 5px 20px var(--shadow);
-            transition: transform 0.3s ease;
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 248, 255, 0.9));
+            padding: 3rem;
+            border: none;
+            border-radius: 20px;
+            transition: all 0.4s ease;
+            box-shadow: 0 15px 40px rgba(135, 206, 235, 0.2);
+            backdrop-filter: blur(10px);
+            border: 2px solid rgba(135, 206, 235, 0.3);
+            position: relative;
         }
 
         .contact-item:hover {
-            transform: translateY(-5px);
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 20px 50px rgba(135, 206, 235, 0.3);
+            border-color: rgba(152, 251, 152, 0.6);
         }
 
         .contact-item h3 {
-            color: var(--forest-green);
-            margin-bottom: 1rem;
-            font-family: 'Playfair Display', serif;
+            font-family: 'Comfortaa', cursive;
+            color: #2d4a2d;
+            margin-bottom: 1.5rem;
+            font-size: 1.3rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+            text-shadow: 1px 1px 2px rgba(135, 206, 235, 0.3);
         }
 
         .contact-item a {
-            color: var(--sage-green);
+            color: #2d4a2d;
             text-decoration: none;
-            font-weight: 500;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            padding: 0.3rem 0.8rem;
+            border-radius: 10px;
+            background: rgba(135, 206, 235, 0.1);
         }
 
         .contact-item a:hover {
-            color: var(--forest-green);
+            color: #ffffff;
+            background: linear-gradient(45deg, #87ceeb, #98fb98);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(135, 206, 235, 0.3);
         }
 
         /* Footer */
         .footer {
-            background: var(--forest-green);
-            color: var(--soft-white);
+            background: linear-gradient(135deg, #87ceeb, #98fb98);
+            color: #ffffff;
             text-align: center;
-            padding: 2rem 0;
-            margin-top: 5rem;
+            padding: 4rem 0;
+            margin-top: 6rem;
+            position: relative;
+            border-radius: 50px 50px 0 0;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+        }
+
+        .footer::before {
+            content: '🌟';
+            position: absolute;
+            top: -1rem;
+            left: 50%;
+            transform: translateX(-50%);
+            font-size: 2rem;
+            animation: float 3s ease-in-out infinite;
         }
 
         /* Mobile Responsiveness */
         @media (max-width: 768px) {
+            .hero {
+                padding-top: 100px;
+                padding-bottom: 2rem;
+                min-height: 100vh;
+            }
+
+            .hero-content {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
             .hero h1 {
                 font-size: 2.5rem;
+                line-height: 1.1;
             }
 
             .hero .subtitle {
                 font-size: 1.2rem;
+                margin-bottom: 1.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+                margin-bottom: 2rem;
             }
 
             .about-content {
@@ -501,7 +1220,7 @@
             }
         }
 
-        /* Scroll animations */
+        /* Animations */
         .fade-in {
             opacity: 0;
             transform: translateY(30px);
@@ -518,192 +1237,260 @@
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
-            <a href="#home" class="logo">Abraham Vega</a>
+            <a href="#home" class="logo">STUDIO GHIBLI X ABE</a>
             <ul class="nav-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#studio">Studio</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
         </div>
     </nav>
-
+    
     <!-- Hero Section -->
     <section id="home" class="hero">
-        <!-- Floating Garden Elements -->
-        <div class="decoration flower-pink" style="position: absolute; top: 15%; left: 8%; font-size: 3rem;">🌸</div>
-        <div class="decoration sunflower" style="position: absolute; top: 25%; right: 10%; font-size: 4rem;">🌻</div>
-        <div class="decoration flower-blue" style="position: absolute; bottom: 20%; left: 15%; font-size: 2.5rem;">🌼</div>
-        <div class="decoration bee" style="position: absolute; top: 60%; left: 5%; font-size: 2rem;">🐝</div>
-        <div class="decoration hummingbird" style="position: absolute; bottom: 30%; right: 5%; font-size: 2.5rem;">🐦</div>
-        <div class="decoration fruit-hanging" style="position: absolute; top: 10%; right: 20%; font-size: 2rem;">🍎🍊🍇</div>
-        
+        <!-- Cloud Images -->
+        <div class="cloud-left-1"></div>
+        <div class="cloud-left-2"></div>
+        <div class="cloud-left-3"></div>
+        <div class="cloud-left-4"></div>
+        <div class="cloud-left-5"></div>
+        <div class="cloud-right-1"></div>
+        <div class="cloud-right-2"></div>
+        <div class="cloud-right-3"></div>
+        <div class="cloud-right-4"></div>
+        <div class="cloud-right-5"></div>
+        <div class="cloud-center-1"></div>
+        <div class="cloud-center-2"></div>
+        <div class="cloud-top-center"></div>
+        <div class="cloud-bottom-center"></div>
+        <div class="cloud-extra-1"></div>
+        <div class="cloud-extra-2"></div>
+        <div class="cloud-fill-1"></div>
+        <div class="cloud-fill-2"></div>
+        <div class="cloud-fill-3"></div>
+        <div class="cloud-fill-4"></div>
+        <div class="cloud-fill-5"></div>
+        <div class="cloud-fill-6"></div>
+
+        <!-- Creature and Ponyo Images -->
+        <div class="creature-image" style="height: 300px;"></div>
+        <div class="ponyo-image" style="height: 300px;"></div>
+
         <div class="hero-content">
-            <h1>Abraham Vega 🌺</h1>
-            <p class="subtitle">Growing Engineering Solutions 🌱</p>
-            <p>Passionate engineering student cultivating innovative solutions through technology and design. Like a garden, I believe great engineering requires patience, dedication, and the right environment to flourish.</p>
-            <a href="#about" class="cta-button">Explore My Journey 🌿</a>
+            <h1>Abraham Daniel Vega</h1>
+            <p class="subtitle">Computer Engineering Student</p>
+            <p>Welcome to my portfolio — where imagination meets engineering, and each project reflects a journey from spark to solution.</p>
+            <a href="#about" class="cta-button">Learn More</a>
         </div>
     </section>
 
     <!-- About Section -->
-    <section id="about" class="section" style="position: relative;">
-        <!-- Garden decorations -->
-        <div class="decoration" style="position: absolute; top: 10%; left: 3%; font-size: 3rem;">🌹</div>
-        <div class="decoration" style="position: absolute; top: 80%; right: 5%; font-size: 2.5rem;">🌷</div>
-        <div class="decoration" style="position: absolute; bottom: 15%; left: 10%; font-size: 2rem;">🦋</div>
-        <div class="decoration" style="position: absolute; top: 20%; right: 15%; font-size: 2rem;">🍓🫐</div>
-        
-        <h2 class="section-title fade-in">About Me 🌸</h2>
+    <section id="about" class="section">
+        <div class="cloud-left-1"></div>
+        <div class="cloud-right-1"></div>
+        <h2 class="section-title fade-in">Hello, I'm Abraham</h2>
         <div class="about-content">
             <div class="about-image fade-in">
-                <div class="profile-card">
-                    <div class="profile-img">🌿🌺</div>
-                    <h3>Engineering Student 🌱</h3>
-                    <p>Cultivating Knowledge 🌾</p>
+            <div class="profile-card" style="background: url('images/thinking.png') no-repeat center center; background-size: cover;">
+                <div class="profile-img" style="background-image: url('images/ME.jpeg'); background-size: cover; background-position: 50% 65%;"></div>
+                    <h3 style="font-family: 'Comfortaa', cursive; color: #ffffff; font-weight: 700; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);">Abraham Vega</h3>
+                    <p>Studio Ghibli Enthusiast</p>
                 </div>
             </div>
             <div class="about-text fade-in">
-                <h3>Nurturing Innovation Through Engineering 🌻</h3>
-                <p>As an engineering student, I approach problem-solving like tending a garden - with patience, care, and a deep understanding of how different elements work together to create something beautiful and functional. 🌿</p>
-                <p>My passion lies in sustainable engineering solutions that not only solve immediate problems but also consider long-term environmental and social impacts. I believe technology should grow alongside nature, not against it. 🌍🌱</p>
-                <p>Currently pursuing my engineering degree while actively seeking internship opportunities and preparing for graduate studies. I'm excited to plant seeds of innovation in the engineering field. 🚀🌸</p>
+                <h3>A computer engineer who believes that great technology, like great stories, should feel magical.</h3>
+                
+                <p>Inspired by the world-building of Studio Ghibli, I strive to design systems and software that are thoughtful, elegant, and quietly powerful. Just as <em>Spirited Away</em> reveals layers of meaning behind every detail, I aim to build projects where simplicity on the surface is supported by deep engineering beneath.</p>
+                
+                <p>Whether it’s building embedded systems, exploring computer architecture, or diving into low-level design, I bring both logic and imagination to every line of code. This portfolio reflects not just my skills, but the wonder and curiosity that drive me — the same feelings I had watching <em>Howl’s Moving Castle</em> as a kid.</p>
+                
+                <p>MAYBE ADD SOMETHING HERE BUT COME BACK LATER</p>
             </div>
         </div>
     </section>
 
     <!-- Skills Section -->
-    <section id="skills" class="section" style="position: relative;">
-        <!-- More garden elements -->
-        <div class="decoration" style="position: absolute; top: 5%; left: 2%; font-size: 2.5rem;">🌺</div>
-        <div class="decoration" style="position: absolute; top: 70%; right: 3%; font-size: 3rem;">🌻</div>
-        <div class="decoration" style="position: absolute; bottom: 10%; left: 5%; font-size: 2rem;">🐝</div>
-        <div class="decoration" style="position: absolute; top: 40%; right: 8%; font-size: 2rem;">🍒🥝</div>
-        <div class="decoration" style="position: absolute; top: 15%; left: 85%; font-size: 2.5rem;">🌹</div>
-        
-        <h2 class="section-title fade-in">Skills & Expertise 🌺</h2>
+    <section id="skills" class="section">
+        <div class="cloud-left-2"></div>
+        <div class="cloud-right-2"></div>
+        <h2 class="section-title fade-in">Skills</h2>
         <div class="skills-grid">
             <div class="skill-card fade-in">
-                <h3>🔧 Engineering Fundamentals 🌿</h3>
+                <h3>Hardware & Embedded Systems</h3>
                 <ul class="skill-list">
-                    <li>Mathematics & Physics</li>
-                    <li>Problem Solving</li>
-                    <li>Design Thinking</li>
-                    <li>Systems Analysis</li>
-                    <li>Project Management</li>
+                    <li>Verilog / SystemVerilog</li>
+                    <li>RISC-V Architecture</li>
+                    <li>PCB Design</li>
+                    <li>Soldering</li>
+                    <li>Embedded Systems</li>
+                    <li>Wireless Communication (e.g., XBee)</li>
+                    <li>Sensors: MLX90614, VL53L0X, SHT31-D</li>
+                    <li>CAD Modeling (Fusion 360, Siemens NX)</li>
+                    <li>Custom Enclosure Design</li>
                 </ul>
             </div>
             <div class="skill-card fade-in">
-                <h3>💻 Technical Skills 🌸</h3>
+                <h3>Software Engineering & Programming</h3>
                 <ul class="skill-list">
-                    <li>Programming (Python, Java, C++)</li>
-                    <li>CAD Software (AutoCAD, SolidWorks)</li>
-                    <li>MATLAB & Simulink</li>
-                    <li>Data Analysis</li>
-                    <li>Laboratory Techniques</li>
+                    <li>C / C++</li>
+                    <li>Python</li>
+                    <li>JavaScript (for React Native)</li>
+                    <li>MATLAB, R</li>
+                    <li>React Native</li>
+                    <li>Operating Systems</li>
+                    <li>Multithreading (ucontext, context switching)</li>
+                    <li>Virtual Memory</li>
+                    <li>Algorithm Development</li>
+                    <li>Git / GitHub</li>
                 </ul>
             </div>
             <div class="skill-card fade-in">
-                <h3>🌱 Soft Skills 🌻</h3>
+                <h3>Tools, Frameworks & Simulation</h3>
                 <ul class="skill-list">
-                    <li>Team Collaboration</li>
-                    <li>Communication</li>
-                    <li>Critical Thinking</li>
-                    <li>Adaptability</li>
-                    <li>Leadership</li>
+                    <li>Fusion 360</li>
+                    <li>Siemens NX</li>
+                    <li>STM32CubeProgrammer</li>
+                    <li>Wireshark</li>
+                    <li>Snort IDS</li>
+                    <li>Docker</li>
+                    <li>LAMMPS</li>
+                    <li>Ovito</li>
+                    <li>Packmol</li>
+                    <li>Moltemplate</li>
                 </ul>
             </div>
         </div>
     </section>
 
     <!-- Projects Section -->
-    <section id="projects" class="section" style="position: relative;">
-        <!-- Project section garden elements -->
-        <div class="decoration" style="position: absolute; top: 5%; right: 5%; font-size: 3rem;">🌻</div>
-        <div class="decoration" style="position: absolute; top: 60%; left: 2%; font-size: 2.5rem;">🌷</div>
-        <div class="decoration" style="position: absolute; bottom: 5%; right: 10%; font-size: 2rem;">🐦</div>
-        <div class="decoration" style="position: absolute; top: 30%; left: 90%; font-size: 2rem;">🍑🍓</div>
-        <div class="decoration" style="position: absolute; bottom: 40%; left: 8%; font-size: 2rem;">🦋</div>
-        
-        <h2 class="section-title fade-in">Projects & Work 🌻</h2>
+    <section id="projects" class="section">
+        <div class="cloud-left-3"></div>
+        <div class="cloud-right-3"></div>
+        <h2 class="section-title fade-in">Projects</h2>
         <div class="projects-grid">
             <div class="project-card fade-in">
-                <div class="project-image">🏗️🌿</div>
+                <div class="project-image project-chansey"></div>
                 <div class="project-content">
-                    <h3>Sustainable Bridge Design 🌱</h3>
-                    <p>Designed an eco-friendly pedestrian bridge using recycled materials and sustainable engineering principles. 🌍</p>
+                    <h3>Chansey Health Monitoring Bot</h3>
+                    <p>A playful Pokémon-themed device that monitors personal and environmental health using sensors and an STM32 microcontroller.
+                       It identifies users with NFC tags, dispenses pills automatically, and wirelessly logs data to a custom app.
+                       The system is housed in a 3D-modeled enclosure and connects to a React Native PokéCenter app to display each user’s health history.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">AutoCAD 🌸</span>
-                        <span class="tech-tag">Structural Analysis 🌺</span>
-                        <span class="tech-tag">Sustainability 🌿</span>
+                    <!-- -->
+                        <span class="tech-tag">Embedded Systems</span>
+                        <!-- <span class="tech-tag">Embedded Sensor Interfacing</span> -->
+                        <span class="tech-tag">Wireless Communication</span>
+                        <span class="tech-tag">Systems Integration</span>
+                        <span class="tech-tag">Back-End</span>
+                        <span class="tech-tag">Front-End</span>
+                        <span class="tech-tag">Python & React Native</span>
+                        <span class="tech-tag">CAD Enclosure Design</span>
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Details 🌷</a>
-                        <a href="#" class="project-link">Documentation 📝</a>
+                        <a href="https://www.youtube.com/watch?v=hXiWXc6-l3U" class="project-link">Live Demo</a>
+                        <a href="https://github.com/donatali/Chansey-Health-Bot?tab=readme-ov-file" class="project-link">GitHub</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <div class="project-image">⚡🌻</div>
+                <div class="project-image project-superscalar"></div>
                 <div class="project-content">
-                    <h3>Renewable Energy System 🌞</h3>
-                    <p>Developed a small-scale solar power system with battery storage for campus sustainability initiative. ☀️🔋</p>
+                    <h3>N-way Superscalar R10K-Style Processor</h3>
+                    <p>Built a 3-way out-of-order R10K-style processor with parallel dispatch, issue, and retire stages to maximize ILP. 
+                       Integrated a non-blocking multi-banked cache and a 10-bit GShare branch predictor to optimize memory latency and control flow accuracy, achieving near-ideal CPI and high throughput under realistic workloads.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Solar Energy ☀️</span>
-                        <span class="tech-tag">Circuit Design 🌸</span>
-                        <span class="tech-tag">MATLAB 🌺</span>
+                        <span class="tech-tag">Computer Architecture</span>
+                        <span class="tech-tag">Out-of-Order Execution</span>
+                        <span class="tech-tag">Superscalar Design</span>
+                        <span class="tech-tag">Branch Prediction</span>
+                        <span class="tech-tag">Cache Optimization</span>
+                        <span class="tech-tag">Verilog / SystemVerilog</span>
+                         <!-- <span class="tech-tag">Pipelining</span> -->
                     </div>
                     <div class="project-links">
-                        <a href="#" class="project-link">View Details 🌼</a>
-                        <a href="#" class="project-link">Code 💻</a>
+                        <a href="N_WAY_PROJECT.pdf" class="project-link" target="_blank">View PDF</a>
                     </div>
                 </div>
             </div>
             <div class="project-card fade-in">
-                <div class="project-image">🤖🌿</div>
+                <div class="project-image project-os"></div>
                 <div class="project-content">
-                    <h3>Automated Gardening System 🌱</h3>
-                    <p>Built an IoT-based system for monitoring and maintaining optimal growing conditions for plants. 🌿💧</p>
+                    <h3>Operating Systems Projects</h3>
+                    <p>Developed a user-level threading library in C with support for preemptive and priority-based scheduling using ucontext. 
+                       Built a virtual memory subsystem with demand paging and LRU eviction to reduce page faults, alongside a file system simulator supporting inodes, block allocation, and directory traversal—all rigorously tested under randomized stress conditions.</p>
                     <div class="tech-tags">
-                        <span class="tech-tag">Arduino 🌸</span>
-                        <span class="tech-tag">IoT 🌺</span>
-                        <span class="tech-tag">Python 🌻</span>
+                        <span class="tech-tag">Operating Systems</span>
+                        <span class="tech-tag">User-Level Threading</span>
+                        <span class="tech-tag">Preemptive Scheduling</span>
+                        <span class="tech-tag">Virtual Memory</span>
+                        <span class="tech-tag">File Systems</span>
+                        <span class="tech-tag">C Programming</span>
+                        <span class="tech-tag">LRU Eviction</span>
+                        <span class="tech-tag">Systems Programming</span>
                     </div>
+                    <!--
                     <div class="project-links">
-                        <a href="#" class="project-link">View Details 🌷</a>
-                        <a href="#" class="project-link">GitHub 🐙</a>
+                        <a href="#" class="project-link">Live Demo</a>
+                        <a href="#" class="project-link">GitHub</a>
                     </div>
+                    -->
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- Studio Section -->
+    <section id="studio" class="section">
+        <div class="cloud-left-3"></div>
+        <div class="cloud-right-3"></div>
+        <h2 class="section-title fade-in">Studio</h2>
+        <div class="studio-content fade-in">
+            <p>This studio is my sandbox: solving small problems with big curiosity. 
+               Sometimes that means modeling in CAD, printing prototypes, or designing systems with the same care you'd build a flying machine in a Ghibli world.</p>
+            <ul class="studio-projects">
+                <li>
+                    <h3>Hold my tooth brush...and maybe some other stuff</h3>
+                    <p>Description of Project A.</p>
+                </li>
+                <li>
+                    <h3>I need to place to hang my back scrub...</h3>
+                    <p>Description of Project B.</p>
+                </li>
+                <li>
+                    <h3>PCB and find out</h3>
+                    <p>Description of Project B.</p>
+                </li>
+                <!-- Add more projects here -->
+            </ul>
+        </div>
+    </section>
+
     <!-- Contact Section -->
-    <section id="contact" class="section" style="position: relative;">
-        <!-- Contact section garden elements -->
-        <div class="decoration" style="position: absolute; top: 10%; left: 5%; font-size: 3rem;">🌹</div>
-        <div class="decoration" style="position: absolute; top: 20%; right: 3%; font-size: 2.5rem;">🌻</div>
-        <div class="decoration" style="position: absolute; bottom: 20%; left: 10%; font-size: 2rem;">🐝</div>
-        <div class="decoration" style="position: absolute; bottom: 10%; right: 8%; font-size: 2.5rem;">🌺</div>
-        <div class="decoration" style="position: absolute; top: 50%; left: 2%; font-size: 2rem;">🍎🍊</div>
-        <div class="decoration" style="position: absolute; top: 40%; right: 5%; font-size: 2rem;">🦋</div>
-        
-        <h2 class="section-title fade-in">Let's Grow Together 🌺🌻</h2>
+    <section id="contact" class="section">
+        <div class="cloud-left-4"></div>
+        <div class="cloud-right-4"></div>
+        <h2 class="section-title fade-in">Contact</h2>
         <div class="contact-content fade-in">
-            <p>I'm always excited to connect with fellow engineers, potential mentors, and organizations looking for passionate engineering talent. Whether you're offering internship opportunities, graduate program information, or just want to discuss engineering innovations, I'd love to hear from you! 🌱✨</p>
+            <p>Reach out if something here sparked your interest. I’m always open to thoughtful conversations.</p>
             
             <div class="contact-info">
                 <div class="contact-item">
-                    <h3>📧 Email 🌸</h3>
-                    <a href="mailto:abraham.vega@email.com">abraham.vega@email.com</a>
+                    <h3>Email</h3>
+                    <a href="mailto:abraham.vega@email.com">abevega@umich.edu</a>
                 </div>
                 <div class="contact-item">
-                    <h3>💼 LinkedIn 🌿</h3>
-                    <a href="#" target="_blank">linkedin.com/in/abrahamvega</a>
+                    <h3>Phone</h3>
+                    <a href="tel:+17346865237">(734) 686-5237</a>
                 </div>
                 <div class="contact-item">
-                    <h3>🐙 GitHub 🌺</h3>
+                    <h3>LinkedIn</h3>
+                    <a href="https://www.linkedin.com/in/abraham-d-542200325" target="_blank">linkedin.com/abrahamv</a>
+                </div>
+                <div class="contact-item">
+                    <h3>GitHub</h3>
                     <a href="#" target="_blank">github.com/abrahamvega</a>
                 </div>
             </div>
@@ -712,7 +1499,7 @@
 
     <!-- Footer -->
     <footer class="footer">
-        <p>&copy; 2024 Abraham Vega. Growing engineering solutions with passion and purpose. 🌱</p>
+        <p>&copy; 2025 Abraham Vega. All rights reserved.</p>
     </footer>
 
     <script>
@@ -767,56 +1554,10 @@
                 link.style.background = '';
                 link.style.color = '';
                 if (link.getAttribute('href') === `#${current}`) {
-                    link.style.background = 'var(--sage-green)';
-                    link.style.color = 'var(--soft-white)';
+                    link.style.background = '#007bff';
+                    link.style.color = '#ffffff';
                 }
             });
-        });
-    </script>
-</body>
-</html>
-                // Start the flip animation on the welcome page
-                welcomePage.classList.add('page-flip-backward');
-                
-                setTimeout(() => {
-                    // Hide welcome page and show splatter page
-                    welcomePage.classList.remove('show', 'page-flip-forward', 'page-flip-backward', 'page-enter-from-right', 'page-enter-from-left');
-                    splash2.classList.remove('hidden');
-                    splash2.style.display = 'block';
-                    splash2.style.zIndex = '9999';
-                    
-                    // Restore splatter page functionality
-                    canProceed = true;
-                    instructionText.style.display = 'block';
-                    document.body.style.overflow = 'hidden';
-                    
-                    // Re-add event listeners for the splatter page
-                    document.addEventListener('click', proceedToWelcomeFromSplatter);
-                    document.addEventListener('keydown', proceedToWelcomeFromSplatter);
-ToWelcomeFromSplatter);
-                }, 1000);
-            };
-            
-            // Function to proceed from splatter back to welcome page
-            function proceedToWelcomeFromSplatter() {
-                if (canProceed) {
-                    // Remove event listeners to prevent multiple triggers
-                    document.removeEventListener('click', proceedToWelcomeFromSplatter);
-                    document.removeEventListener('keydown', proceedToWelcomeFromSplatter);
-                    
-                    // Start the page flip animation
-                    splash2.classList.add('page-flip-forward');
-                    welcomePage.classList.add('show', 'page-enter-from-right');
-                    document.body.style.overflow = 'auto';
-                    
-                    // Hide the splash screen after animation completes
-                    setTimeout(() => {
-                        splash2.classList.add('hidden');
-                        splash2.classList.remove('page-flip-forward');
-                        welcomePage.classList.remove('page-enter-from-right');
-                    }, 1000);
-                }
-            }
         });
     </script>
 </body>
