@@ -1,133 +1,154 @@
 <!DOCTYPE html>
+<!-- This tells the browser what type of document this is -->
 <html lang="en">
+<!-- The main container for our entire webpage -->
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Abraham Vega - Portfolio</title>
+    <!-- This section contains information about the page that doesn't show up on the page itself -->
+    <meta charset="UTF-8"> <!-- Tells browser how to read special characters -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Makes the site work well on phones and tablets -->
+    <title>Abraham Vega - Portfolio</title> <!-- What shows up in the browser tab -->
+    <!-- This line loads our custom fonts from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@300;400;600;700&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
+        /* CSS styles - this is where we make everything look pretty! */
+        /* Universal reset - removes default spacing from all elements */
         * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
+            margin: 0;           /* Removes default margins */
+            padding: 0;          /* Removes default padding */
+            box-sizing: border-box; /* Makes sizing calculations easier */
         }
 
+        /* Main body styling - like the canvas for our Ghibli world */
         body {
-            font-family: 'Nunito', sans-serif;
-            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 50%, #fff8dc 100%);
-            color: #2d4a2d;
-            line-height: 1.7;
-            overflow-x: hidden;
+            font-family: 'Nunito', sans-serif; /* Our main font choice */
+            background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 50%, #fff8dc 100%); /* Soft, magical gradient background */
+            color: #2d4a2d;      /* Dark green text color, like forest shadows */
+            line-height: 1.7;    /* Spacing between lines of text */
+            overflow-x: hidden;  /* Prevents horizontal scrolling */
         }
 
-        /* Navigation */
-        .navbar {
-            position: fixed;
-            top: 0;
-            width: 100%;
+        /* Navigation bar - like the floating islands in Castle in the Sky */
+        .sky-navigation {
+            position: fixed;     /* Stays in place when you scroll */
+            top: 0;             /* Positioned at the very top */
+            width: 100%;        /* Spans the full width of the screen */
+            /* Beautiful gradient background with cloud pattern overlay */
             background: linear-gradient(135deg, rgba(173, 216, 230, 0.95), rgba(135, 206, 235, 0.9)), 
-                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80"><defs><pattern id="clouds" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse"><ellipse cx="15" cy="20" rx="12" ry="6" fill="rgba(255,255,255,0.7)"/><ellipse cx="10" cy="25" rx="8" ry="4" fill="rgba(255,255,255,0.5)"/><ellipse cx="20" cy="18" rx="6" ry="3" fill="rgba(255,255,255,0.6)"/><ellipse cx="45" cy="22" rx="14" ry="7" fill="rgba(255,255,255,0.6)"/><ellipse cx="40" cy="28" rx="9" ry="5" fill="rgba(255,255,255,0.4)"/><ellipse cx="50" cy="16" rx="7" ry="4" fill="rgba(255,255,255,0.5)"/><ellipse cx="70" cy="25" rx="10" ry="5" fill="rgba(255,255,255,0.6)"/><ellipse cx="65" cy="30" rx="6" ry="3" fill="rgba(255,255,255,0.4)"/></pattern></defs><rect width="400" height="80" fill="url(%23clouds)"/></svg>');
-            backdrop-filter: blur(15px);
-            z-index: 1000;
-            padding: 1.5rem 0;
-            border-bottom: 3px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 8px 32px rgba(173, 216, 230, 0.4);
+                        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 80"><defs><pattern id="clouds" x="0" y="0" width="80" height="40" patternUnits="userSpaceOnUse"><ellipse cx="15" cy="20" rx="12" ry="6" fill="rgba(255,255,255,0.7)"/><ellipse cx="10" cy="25" rx="8" ry="4" fill="rgba(255,255,255,0.5)"/><ellipse cx="20" cy="18" rx="6" ry="3" fill="rgba(255,255,255,0.6)"/><ellipse cx="45" cy="22" rx="14" ry="7" fill="rgba(255,255,255,0.6)"/><ellipse cx="40" cy="28" rx="9" ry="5" fill="rgba(255,255,255,0.4)"/><ellipse cx="50" cy="16" rx="7" ry="4" fill="rgba(255,255,255,0.5)"/><ellipse cx="70" cy="25" rx="10" ry="5" fill="rgba(255,255,255,0.6)"/><ellipse cx="65" cy="30" rx="6" ry="3" fill="rgba(255,255,255,0.4)"/></pattern></defs><rect width="400" height="80" fill="url(#clouds)"/></svg>');
+            backdrop-filter: blur(15px); /* Creates a frosted glass effect */
+            z-index: 1000;      /* Makes sure it appears above everything else */
+            padding: 1.5rem 0;  /* Adds space above and below the content */
+            border-bottom: 3px solid rgba(255, 255, 255, 0.4); /* Subtle bottom border */
+            box-shadow: 0 8px 32px rgba(173, 216, 230, 0.4);   /* Soft shadow effect */
         }
 
-        .nav-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 2rem;
+        /* Container for navigation content - keeps everything centered and organized */
+        .sky-navigation-container {
+            max-width: 1200px;         /* Maximum width so content doesn't stretch too wide */
+            margin: 0 auto;            /* Centers the container horizontally */
+            display: flex;             /* Uses flexbox for easy alignment */
+            justify-content: space-between; /* Puts logo on left, links on right */
+            align-items: center;       /* Vertically centers everything */
+            padding: 0 2rem;           /* Adds space on left and right sides */
         }
 
-        .logo {
-            font-family: 'Fredoka One', cursive;
-            font-size: 1.8rem;
-            font-weight: 400;
-            color: #2d4a2d;
-            text-decoration: none;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
+        /* Studio name/logo - inspired by the magical studio names in Ghibli films */
+        .studio-title {
+            font-family: 'Fredoka One', cursive; /* Playful, rounded font */
+            font-size: 1.8rem;        /* Size of the text */
+            font-weight: 400;         /* Font thickness */
+            color: #2d4a2d;          /* Dark forest green */
+            text-decoration: none;    /* Removes underline from link */
+            letter-spacing: 1px;      /* Adds space between letters */
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3); /* Soft blue shadow */
         }
 
-        .nav-links {
-            display: flex;
-            list-style: none;
-            gap: 2rem;
+        /* Navigation menu - like the different worlds you can visit */
+        .journey-links {
+            display: flex;     /* Lines up the links horizontally */
+            list-style: none;  /* Removes bullet points */
+            gap: 2rem;         /* Space between each link */
         }
 
-        .nav-links a {
-            text-decoration: none;
-            color: #2d4a2d;
-            font-family: 'Fredoka One', cursive;
-            font-weight: 400;
+        /* Individual navigation links - like magical portals to different sections */
+        .journey-links a {
+            text-decoration: none;    /* Removes underline */
+            color: #2d4a2d;          /* Dark green text */
+            font-family: 'Fredoka One', cursive; /* Same playful font */
+            font-weight: 400;        /* Font thickness */
+            /* Smooth, bouncy animation when hovering - like Totoro's movements */
             transition: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-            padding: 0.8rem 1.8rem;
-            letter-spacing: 1px;
-            font-size: 1rem;
-            position: relative;
-            border-radius: 25px;
-            background: rgba(255, 255, 255, 0.7);
-            border: 2px solid rgba(255, 255, 255, 0.5);
-            backdrop-filter: blur(10px);
-            box-shadow: 0 4px 15px rgba(135, 206, 235, 0.2);
+            padding: 0.8rem 1.8rem;  /* Space inside each button */
+            letter-spacing: 1px;     /* Space between letters */
+            font-size: 1rem;         /* Text size */
+            position: relative;      /* Allows for special effects */
+            border-radius: 25px;     /* Rounded corners */
+            background: rgba(255, 255, 255, 0.7); /* Semi-transparent white background */
+            border: 2px solid rgba(255, 255, 255, 0.5); /* Subtle border */
+            backdrop-filter: blur(10px); /* Frosted glass effect */
+            box-shadow: 0 4px 15px rgba(135, 206, 235, 0.2); /* Soft shadow */
         }
 
-        .nav-links a:hover {
-            color: #ffffff;
+        /* Hover effect for navigation links - magical transformation like Howl's hair! */
+        .journey-links a:hover {
+            color: #ffffff;          /* Text turns white */
+            /* Rainbow gradient background - like the colors in Spirited Away */
             background: linear-gradient(45deg, #ff6b6b, #ffd93d, #87ceeb, #98fb98);
-            transform: translateY(-3px) scale(1.05);
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4);
-            border-color: rgba(255, 255, 255, 0.8);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            transform: translateY(-3px) scale(1.05); /* Moves up and grows slightly */
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.4); /* Stronger shadow */
+            border-color: rgba(255, 255, 255, 0.8); /* Brighter border */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3); /* Text shadow for readability */
         }
 
-        .nav-links a::before {
-            content: '';
-            position: absolute;
-            top: -2px;
+        /* Special shimmer effect for navigation links - like magic sparkles */
+        .journey-links a::before {
+            content: '';             /* Creates an invisible element */
+            position: absolute;      /* Positioned relative to the link */
+            top: -2px;              /* Slightly outside the button */
             left: -2px;
             right: -2px;
             bottom: -2px;
+            /* Gradient that creates a shimmer effect */
             background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
-            border-radius: 27px;
-            z-index: -1;
-            opacity: 0;
-            transition: opacity 0.3s ease;
+            border-radius: 27px;     /* Matches button shape */
+            z-index: -1;            /* Behind the button text */
+            opacity: 0;             /* Invisible by default */
+            transition: opacity 0.3s ease; /* Smooth fade in/out */
         }
 
-        .nav-links a:hover::before {
-            opacity: 1;
-            animation: shimmer 1.5s ease-in-out infinite;
+        /* Makes the shimmer effect visible when hovering */
+        .journey-links a:hover::before {
+            opacity: 1;             /* Makes the shimmer visible */
+            animation: shimmer 1.5s ease-in-out infinite; /* Starts the shimmer animation */
         }
 
+        /* Shimmer animation - like light catching on water or crystal */
         @keyframes shimmer {
-            0% { transform: translateX(-100%) rotate(45deg); }
-            100% { transform: translateX(200%) rotate(45deg); }
+            0% { transform: translateX(-100%) rotate(45deg); }   /* Starts off-screen left */
+            100% { transform: translateX(200%) rotate(45deg); }  /* Ends off-screen right */
         }
 
+        /* Animation for floating clouds - gentle, dreamy movement */
         @keyframes cloudFloat {
-            0%, 100% { transform: translateX(0px) translateY(0px); }
-            25% { transform: translateX(10px) translateY(-5px); }
-            50% { transform: translateX(-5px) translateY(-10px); }
-            75% { transform: translateX(-10px) translateY(-5px); }
+            0%, 100% { transform: translateX(0px) translateY(0px); }    /* Starting/ending position */
+            25% { transform: translateX(10px) translateY(-5px); }       /* Drifts right and up */
+            50% { transform: translateX(-5px) translateY(-10px); }      /* Moves left and higher */
+            75% { transform: translateX(-10px) translateY(-5px); }      /* Further left, then down */
         }
 
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: flex-start;
-            text-align: center;
+        /* Welcome section - like the opening scene of a Ghibli movie */
+        .magical-welcome {
+            min-height: 100vh;       /* Takes up the full screen height */
+            display: flex;           /* Uses flexbox for layout */
+            flex-direction: column;  /* Stacks elements vertically */
+            align-items: center;     /* Centers everything horizontally */
+            justify-content: flex-start; /* Starts from the top */
+            text-align: center;      /* Centers the text */
+            /* Soft, dreamy gradient background */
             background: linear-gradient(135deg, #e8f5e8 0%, #f0f8ff 50%, #fff8dc 100%);
-            position: relative;
-            overflow: hidden;
-            padding-top: 120px;
+            position: relative;      /* Allows for positioned clouds */
+            overflow: hidden;        /* Hides clouds that drift off-screen */
+            padding-top: 120px;      /* Space for the navigation bar */
         }
 
         /* Cloud Images */
@@ -421,29 +442,30 @@
             z-index: 1;
         }
 
-        /* Creature and Ponyo Images */
-        .creature-image {
-            position: absolute;
-            left: -10px;
-            bottom: 20px;
-            width: 300px;
-            height: auto;
-            background: url('images/creature.png') no-repeat;
-            background-size: contain;
-            z-index: 10;
-            opacity: 0.9;
+        /* Ghibli spirit characters - like Totoro from the forest and Ponyo from the sea */
+        .forest-spirit-image {
+            position: absolute;  /* Positioned exactly where we want it */
+            left: -10px;        /* Slightly off the left edge */
+            bottom: 20px;       /* Near the bottom of the screen */
+            width: 300px;       /* How wide the image is */
+            height: auto;       /* Height adjusts automatically */
+            background: url('images/creature.png') no-repeat; /* The forest creature image */
+            background-size: contain; /* Fits the image nicely */
+            z-index: 10;        /* Appears above other elements */
+            opacity: 0.9;       /* Slightly transparent for a magical effect */
         }
 
-        .ponyo-image {
-            position: absolute;
-            right: -10px;
-            bottom: 20px;
-            width: 300px;
-            height: auto;
-            background: url('images/ponyo.png') no-repeat;
-            background-size: contain;
-            z-index: 10;
-            opacity: 0.9;
+        /* Ponyo from the sea - welcoming visitors from the water */
+        .sea-spirit-image {
+            position: absolute;  /* Positioned exactly where we want it */
+            right: -10px;       /* Slightly off the right edge */
+            bottom: 20px;       /* Near the bottom of the screen */
+            width: 300px;       /* How wide the image is */
+            height: auto;       /* Height adjusts automatically */
+            background: url('images/ponyo.png') no-repeat; /* The sea spirit (Ponyo) image */
+            background-size: contain; /* Fits the image nicely */
+            z-index: 10;        /* Appears above other elements */
+            opacity: 0.9;       /* Slightly transparent for a magical effect */
         }
 
         @keyframes cloudDrift {
@@ -453,84 +475,91 @@
             75% { transform: translateX(-20px) translateY(-10px); }
         }
 
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
+        /* Magical background layer - creates atmospheric clouds behind everything */
+        .magical-welcome::before {
+            content: '';            /* Creates an invisible element */
+            position: absolute;     /* Positioned relative to the welcome section */
+            top: 0;                /* Covers the entire section */
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><g filter="url(%23blur)" opacity="0.7"><ellipse cx="120" cy="80" rx="60" ry="25" fill="rgba(255,255,255,0.8)"/><ellipse cx="100" cy="85" rx="45" ry="18" fill="rgba(255,255,255,0.6)"/><ellipse cx="140" cy="75" rx="35" ry="15" fill="rgba(255,255,255,0.7)"/><ellipse cx="600" cy="120" rx="80" ry="35" fill="rgba(255,255,255,0.6)"/><ellipse cx="580" cy="125" rx="50" ry="20" fill="rgba(255,255,255,0.8)"/><ellipse cx="620" cy="115" rx="40" ry="18" fill="rgba(255,255,255,0.5)"/><ellipse cx="300" cy="60" rx="70" ry="30" fill="rgba(255,255,255,0.7)"/><ellipse cx="280" cy="65" rx="45" ry="20" fill="rgba(255,255,255,0.6)"/><ellipse cx="320" cy="55" rx="35" ry="16" fill="rgba(255,255,255,0.8)"/><ellipse cx="450" cy="180" rx="55" ry="22" fill="rgba(255,255,255,0.6)"/><ellipse cx="435" cy="185" rx="35" ry="15" fill="rgba(255,255,255,0.7)"/><ellipse cx="80" cy="450" rx="65" ry="28" fill="rgba(255,255,255,0.5)"/><ellipse cx="60" cy="455" rx="40" ry="18" fill="rgba(255,255,255,0.7)"/><ellipse cx="650" cy="400" rx="75" ry="32" fill="rgba(255,255,255,0.6)"/><ellipse cx="630" cy="405" rx="50" ry="20" fill="rgba(255,255,255,0.8)"/></g></svg>') no-repeat;
-            background-size: cover;
-            opacity: 0.8;
-            animation: cloudFloat 20s ease-in-out infinite;
+            /* SVG pattern creates soft, blurred cloud shapes */
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600"><defs><filter id="blur"><feGaussianBlur stdDeviation="2"/></filter></defs><g filter="url(#blur)" opacity="0.7"><ellipse cx="120" cy="80" rx="60" ry="25" fill="rgba(255,255,255,0.8)"/><ellipse cx="100" cy="85" rx="45" ry="18" fill="rgba(255,255,255,0.6)"/><ellipse cx="140" cy="75" rx="35" ry="15" fill="rgba(255,255,255,0.7)"/><ellipse cx="600" cy="120" rx="80" ry="35" fill="rgba(255,255,255,0.6)"/><ellipse cx="580" cy="125" rx="50" ry="20" fill="rgba(255,255,255,0.8)"/><ellipse cx="620" cy="115" rx="40" ry="18" fill="rgba(255,255,255,0.5)"/><ellipse cx="300" cy="60" rx="70" ry="30" fill="rgba(255,255,255,0.7)"/><ellipse cx="280" cy="65" rx="45" ry="20" fill="rgba(255,255,255,0.6)"/><ellipse cx="320" cy="55" rx="35" ry="16" fill="rgba(255,255,255,0.8)"/><ellipse cx="450" cy="180" rx="55" ry="22" fill="rgba(255,255,255,0.6)"/><ellipse cx="435" cy="185" rx="35" ry="15" fill="rgba(255,255,255,0.7)"/><ellipse cx="80" cy="450" rx="65" ry="28" fill="rgba(255,255,255,0.5)"/><ellipse cx="60" cy="455" rx="40" ry="18" fill="rgba(255,255,255,0.7)"/><ellipse cx="650" cy="400" rx="75" ry="32" fill="rgba(255,255,255,0.6)"/><ellipse cx="630" cy="405" rx="50" ry="20" fill="rgba(255,255,255,0.8)"/></g></svg>') no-repeat;
+            background-size: cover; /* Covers the entire area */
+            opacity: 0.8;          /* Semi-transparent */
+            animation: cloudFloat 20s ease-in-out infinite; /* Gentle floating animation */
         }
 
-        .hero-image {
-            position: relative;
-            z-index: 2;
-            width: 650px;
-            height: 390px;
-            background: url('images/SpiritedAway.png');
-            background-size: cover;
-            background-position: center;
-            background-repeat: no-repeat;
-            border-radius: 30px;
-            border: 2px solid rgba(255, 255, 255, 0.4);
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-            image-rendering: -webkit-optimize-contrast;
-            image-rendering: crisp-edges;
-            margin-bottom: 3rem;
+        /* Main welcome scene image - like a beautiful scene from Spirited Away */
+        .welcome-scene-image {
+            position: relative;     /* Positioned relative to its container */
+            z-index: 2;            /* Appears above background elements */
+            width: 650px;          /* Width of the image */
+            height: 390px;         /* Height of the image */
+            background: url('images/SpiritedAway.png'); /* The main Spirited Away scene */
+            background-size: cover; /* Covers the entire area */
+            background-position: center; /* Centers the image */
+            background-repeat: no-repeat; /* Doesn't repeat */
+            border-radius: 30px;   /* Rounded corners */
+            border: 2px solid rgba(255, 255, 255, 0.4); /* Subtle white border */
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);  /* Soft shadow underneath */
+            image-rendering: -webkit-optimize-contrast;  /* Makes image crisp */
+            image-rendering: crisp-edges;                /* Alternative for other browsers */
+            margin-bottom: 3rem;   /* Space below the image */
         }
 
-        .hero-content {
-            max-width: 800px;
-            padding: 2rem;
-            position: relative;
-            z-index: 2;
-            text-align: center;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
+        /* Welcome content container - holds the main text and button */
+        .welcome-content {
+            max-width: 800px;      /* Maximum width so text doesn't spread too wide */
+            padding: 2rem;         /* Space around the content */
+            position: relative;    /* Positioned relative to its container */
+            z-index: 2;           /* Appears above background elements */
+            text-align: center;    /* Centers all the text */
+            display: flex;         /* Uses flexbox for layout */
+            flex-direction: column; /* Stacks elements vertically */
+            align-items: center;   /* Centers everything horizontally */
+            justify-content: center; /* Centers everything vertically */
         }
 
-        .hero h1 {
-            font-family: 'Fredoka One', cursive;
-            font-size: 3.6rem;
-            font-weight: 400;
-            color: #2d4a2d;
-            margin-bottom: 1.5rem;
-            letter-spacing: 1px;
-            line-height: 1.2;
-            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
-            text-align: center;
-            max-width: 100%;
-            word-wrap: break-word;
+        /* Main name heading - the most important text on the page */
+        .welcome-content h1 {
+            font-family: 'Fredoka One', cursive; /* Playful, rounded font */
+            font-size: 3.6rem;    /* Large size for impact */
+            font-weight: 400;     /* Font thickness */
+            color: #2d4a2d;       /* Dark forest green */
+            margin-bottom: 1.5rem; /* Space below the heading */
+            letter-spacing: 1px;   /* Space between letters */
+            line-height: 1.2;      /* How much space between lines */
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3); /* Soft blue shadow */
+            text-align: center;    /* Centers the text */
+            max-width: 100%;       /* Doesn't exceed container width */
+            word-wrap: break-word; /* Breaks long words if needed */
         }
 
-        .hero .subtitle {
-            font-family: 'Comfortaa', cursive;
-            font-size: 2.1rem;
-            color: #2d4a2d;
-            margin-bottom: 2rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
-            text-align: center;
-            max-width: 100%;
-            word-wrap: break-word;
+        /* Subtitle - describes what Abraham does */
+        .welcome-content .subtitle {
+            font-family: 'Comfortaa', cursive; /* Comfortable, friendly font */
+            font-size: 2.1rem;     /* Smaller than main heading but still prominent */
+            color: #2d4a2d;        /* Same dark forest green */
+            margin-bottom: 2rem;   /* Space below the subtitle */
+            font-weight: 700;      /* Bold for emphasis */
+            letter-spacing: 1px;   /* Space between letters */
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3); /* Soft blue shadow */
+            text-align: center;    /* Centers the text */
+            max-width: 100%;       /* Doesn't exceed container width */
+            word-wrap: break-word; /* Breaks long words if needed */
         }
 
-        .hero p {
-            font-size: 1.9rem;
-            margin-bottom: 3rem;
-            color: #2d4a2d;
-            line-height: 1.7;
-            max-width: 90%;
-            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
-            text-align: center;
-            word-wrap: break-word;
+        /* Welcome message paragraph - introduces the portfolio */
+        .welcome-content p {
+            font-size: 1.9rem;     /* Large, readable size */
+            margin-bottom: 3rem;   /* Space below the paragraph */
+            color: #2d4a2d;        /* Same dark forest green */
+            line-height: 1.7;      /* Comfortable spacing between lines */
+            max-width: 90%;        /* Slightly narrower for better readability */
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3); /* Soft blue shadow */
+            text-align: center;    /* Centers the text */
+            word-wrap: break-word; /* Breaks long words if needed */
         }
 
         @keyframes rainbowShift {
@@ -538,27 +567,31 @@
             50% { background-position: 100% 50%; }
         }
 
-        .cta-button {
-            display: inline-block;
+        /* Magical journey button - invites visitors to explore more */
+        .magical-journey-button {
+            display: inline-block;  /* Behaves like a button */
+            /* Beautiful gradient like a sunset in a Ghibli film */
             background: linear-gradient(45deg, #ff6b6b, #ffd93d);
-            color: #ffffff;
-            padding: 1.2rem 3rem;
-            border: none;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 700;
-            font-family: 'Comfortaa', cursive;
-            letter-spacing: 1px;
-            transition: all 0.4s ease;
-            position: relative;
-            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3);
-            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+            color: #ffffff;         /* White text */
+            padding: 1.2rem 3rem;   /* Space inside the button */
+            border: none;           /* No border */
+            border-radius: 50px;    /* Very rounded corners */
+            text-decoration: none;  /* Removes underline */
+            font-weight: 700;       /* Bold text */
+            font-family: 'Comfortaa', cursive; /* Same comfortable font */
+            letter-spacing: 1px;    /* Space between letters */
+            transition: all 0.4s ease; /* Smooth animation when hovering */
+            position: relative;     /* Allows for special effects */
+            box-shadow: 0 8px 25px rgba(255, 107, 107, 0.3); /* Soft shadow */
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);     /* Text shadow for readability */
         }
 
-        .cta-button:hover {
+        /* Hover effect for the magical journey button - transforms when you point at it */
+        .magical-journey-button:hover {
+            /* Reverses the gradient colors */
             background: linear-gradient(45deg, #ffd93d, #ff6b6b);
-            transform: translateY(-5px) scale(1.05);
-            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4);
+            transform: translateY(-5px) scale(1.05); /* Moves up and grows slightly */
+            box-shadow: 0 15px 35px rgba(255, 107, 107, 0.4); /* Stronger shadow */
         }
 
         /* Sections */
@@ -1012,8 +1045,6 @@
         /* Studio Section */
         .studio-content {
             text-align: center;
-            max-width: 800px;
-            margin: 0 auto;
         }
 
         .studio-content p {
@@ -1022,19 +1053,19 @@
             margin-bottom: 3rem;
             line-height: 1.8;
             font-weight: 400;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+            margin-bottom: 3rem;
         }
 
         .studio-projects {
             list-style: none;
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
             text-align: left;
         }
 
-        .studio-projects li {
+        .studio-project {
             background: linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 248, 255, 0.9));
-            padding: 3rem;
             border: none;
             border-radius: 25px;
             transition: all 0.4s ease;
@@ -1042,10 +1073,211 @@
             position: relative;
             backdrop-filter: blur(10px);
             border: 2px solid rgba(135, 206, 235, 0.3);
+            margin-bottom: 3rem;
+            overflow: hidden;
         }
 
-        .studio-projects li::before {
+        .studio-project:last-child {
+            margin-bottom: 0;
+        }
+
+        .studio-project::before {
             content: '🎨';
+            position: absolute;
+            top: 1rem;
+            right: 1rem;
+            font-size: 1.5rem;
+            animation: float 3s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .studio-project:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(135, 206, 235, 0.3);
+            border-color: rgba(152, 251, 152, 0.6);
+        }
+
+        .studio-project-content {
+            display: grid;
+            grid-template-columns: 1.5fr 1fr;
+            gap: 3rem;
+            align-items: center;        /* Centers content vertically */
+            padding: 0;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .studio-project-text {
+            padding: 3rem;
+        }
+
+        .studio-project-text h3 {
+            font-family: 'Fredoka One', cursive;
+            font-size: 2.2rem;
+            color: #2d4a2d;
+            margin-bottom: 2rem;
+            font-weight: 400;
+            letter-spacing: 1px;
+            text-shadow: 2px 2px 4px rgba(135, 206, 235, 0.3);
+        }
+
+        .studio-project-text p {
+            margin-bottom: 2rem;
+            color: #2d4a2d;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            font-weight: 400;
+        }
+
+        .studio-project-text p:last-child {
+            margin-bottom: 0;
+        }
+
+        .studio-project-image {
+            width: 100%;
+            min-height: 400px;
+            max-width: 400px;
+            background: linear-gradient(135deg, #87ceeb, #98fb98);
+            border-radius: 25px;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            box-shadow: 0 15px 35px rgba(135, 206, 235, 0.4);
+            border: 3px solid rgba(255, 255, 255, 0.3);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .studio-project:hover .studio-project-image {
+            transform: scale(1.05);
+        }
+
+        /* Individual project images */
+        .studio-project-image.toothbrush-holder {
+            background-image: url('images/toothbrush-holder.png');
+        }
+
+        .studio-project-image.project-b {
+            background-image: url('images/project-b.png');
+        }
+
+        /* Coming soon project - Abraham painting, a creative moment captured */
+        .studio-project-image.project-c {
+            background-image: url('images/me_painting.jpeg'); /* Abraham creating art */
+            background-size: contain;     /* Shows the whole image without cropping */
+            background-position: center; /* Centers the image perfectly */
+            min-height: 500px;          /* Makes the container taller */
+            max-width: 500px;           /* Makes the container wider */
+        }
+
+        /* Toothbrush holder gallery styles */
+        .toothbrush-gallery {
+            display: flex;
+            flex-direction: column;
+            gap: 1.5rem;
+            width: 100%;
+            height: 100%;
+            padding: 1.5rem;
+            justify-content: space-between;
+        }
+
+        .gallery-row {
+            display: flex;
+            gap: 1.5rem;
+            justify-content: center;
+        }
+
+        .gallery-row.row-1 {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .gallery-row.row-2 {
+            flex: 1;
+        }
+
+        .gallery-row.row-3 {
+            flex: 1.2;
+        }
+
+        .gallery-row.row-4 {
+            flex: 1;
+            justify-content: center;
+        }
+
+        .gallery-image {
+            border-radius: 15px;
+            box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            object-fit: contain;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+        }
+
+        .gallery-image:hover {
+            transform: scale(1.03);
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Row 1: before */
+        .gallery-row.row-1 .gallery-image {
+            width: 85%;
+            height: 220px;
+        }
+
+        /* Row 2: base and top */
+        .gallery-row.row-2 .gallery-image {
+            width: calc(50% - 0.5rem);
+            height: 240px;
+        }
+
+        /* Row 3: 2, 3 */
+        .gallery-row.row-3 .gallery-image {
+            width: calc(50% - 0.5rem);
+            height: 260px;
+        }
+
+        /* Row 4: 4 */
+        .gallery-row.row-4 .gallery-image {
+            width: 85%;
+            height: 280px;
+        }
+
+        /* Mobile responsiveness for gallery */
+        @media (max-width: 768px) {
+            .toothbrush-gallery {
+                gap: 1rem;
+                padding: 1rem;
+            }
+            
+            .gallery-row.row-3 {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+            
+            .gallery-row.row-1 .gallery-image {
+                width: 95%;
+                height: 180px;
+            }
+            
+            .gallery-row.row-2 .gallery-image {
+                height: 190px;
+            }
+            
+            .gallery-row.row-3 .gallery-image {
+                width: 90%;
+                height: 200px;
+            }
+            
+            .gallery-row.row-4 .gallery-image {
+                width: 90%;
+                height: 190px;
+            }
+        }
+
+        .studio-project-image::before {
+            content: '🌸';
             position: absolute;
             top: 1rem;
             right: 1rem;
@@ -1053,28 +1285,22 @@
             animation: float 3s ease-in-out infinite;
         }
 
-        .studio-projects li:hover {
-            transform: translateY(-10px) rotate(1deg);
-            box-shadow: 0 25px 60px rgba(135, 206, 235, 0.3);
-            border-color: rgba(152, 251, 152, 0.6);
-        }
-
-        .studio-projects h3 {
-            font-family: 'Comfortaa', cursive;
-            color: #2d4a2d;
-            margin-bottom: 1.5rem;
-            font-size: 1.5rem;
-            font-weight: 700;
-            letter-spacing: 0.5px;
-            text-shadow: 1px 1px 2px rgba(135, 206, 235, 0.3);
-        }
-
-        .studio-projects p {
-            color: #2d4a2d;
-            line-height: 1.7;
-            font-weight: 400;
-            margin-bottom: 0;
-            text-align: left;
+        /* Mobile responsiveness for studio projects */
+        @media (max-width: 768px) {
+            .studio-project-content {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+            
+            .studio-project-text {
+                text-align: center;
+                padding: 2rem;
+            }
+            
+            .studio-project-image {
+                min-height: 250px;
+                max-width: 100%;
+            }
         }
 
         /* Contact Section */
@@ -1256,11 +1482,11 @@
     </style>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <a href="#home" class="logo">STUDIO GHIBLI X ABE</a>
-            <ul class="nav-links">
+    <!-- Navigation - like the floating navigation in Castle in the Sky -->
+    <nav class="sky-navigation">
+        <div class="sky-navigation-container">
+            <a href="#home" class="studio-title">STUDIO GHIBLI X ABE</a>
+            <ul class="journey-links">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
@@ -1271,8 +1497,8 @@
         </div>
     </nav>
     
-    <!-- Hero Section -->
-    <section id="home" class="hero">
+    <!-- Welcome Section - like the opening scene of a Ghibli film -->
+    <section id="home" class="magical-welcome">
         <!-- Cloud Images -->
         <div class="cloud-left-1"></div>
         <div class="cloud-left-2"></div>
@@ -1297,17 +1523,19 @@
         <div class="cloud-fill-5"></div>
         <div class="cloud-fill-6"></div>
 
-        <!-- Creature and Ponyo Images -->
-        <div class="creature-image" style="height: 300px;"></div>
-        <div class="ponyo-image" style="height: 300px;"></div>
+        <!-- Ghibli characters greet visitors - like Totoro and friends -->
+        <div class="forest-spirit-image" style="height: 300px;"></div>
+        <div class="sea-spirit-image" style="height: 300px;"></div>
 
-        <div class="hero-image"></div>
+        <!-- Main welcome image - like a scene from Spirited Away -->
+        <div class="welcome-scene-image"></div>
         
-        <div class="hero-content">
+        <!-- Welcome content - our story begins here -->
+        <div class="welcome-content">
             <h1>Abraham Daniel Vega</h1>
             <p class="subtitle">Computer Engineering Student</p>
             <p>Welcome to my portfolio — where imagination meets engineering, and each project reflects a journey from spark to solution.</p>
-            <a href="#about" class="cta-button">Learn More</a>
+            <a href="#about" class="magical-journey-button">Learn More</a>
         </div>
     </section>
 
@@ -1331,7 +1559,7 @@
                 
                 <p>Whether it’s building embedded systems, exploring computer architecture, or diving into low-level design, I bring both logic and imagination to every line of code. This portfolio reflects not just my skills, but the wonder and curiosity that drive me — the same feelings I had watching <em>Howl’s Moving Castle</em> as a kid.</p>
                 
-                <p></p>
+                <p>Outside of engineering, I find joy in things that feel just as intentionally made — animated films (especially Spirited Away and Ponyo), beautiful cinematography, the precision of baking, and the rhythmic satisfaction of cleaning and bringing order to a space. I’ve always loved flowers and greenery, but what I really dream of is something bigger than a garden — a space full of life, with animals roaming freely and blooms everywhere, like a small, colorful farm built with care.</p>
             </div>
         </div>
     </section>
@@ -1478,21 +1706,54 @@
         <div class="studio-content fade-in">
             <p>This studio is my sandbox: solving small problems with big curiosity. 
                Sometimes that means modeling in CAD, printing prototypes, or designing systems with the same care you'd build a flying machine in a Ghibli world.</p>
-            <ul class="studio-projects">
-                <li>
-                    <h3>A</h3>
-                    <p>Description of Project A.</p>
-                </li>
-                <li>
-                    <h3>B</h3>
-                    <p>Description of Project B.</p>
-                </li>
-                <li>
-                    <h3>C</h3>
-                    <p>Description of Project C.</p>
-                </li>
+            
+            <div class="studio-projects">
+                <div class="studio-project fade-in">
+                    <div class="studio-project-content">
+                        <div class="studio-project-text">
+                            <h3>Tooth brush, tooth paste, razor, flower holder?</h3>
+                            
+                            <p>For months, I put up with a chipped ceramic dish that barely held my toothbrush and razor—until I finally had enough. Every time I rushed out of the bathroom, something would slide off and hit the floor. Water collected on the sink, and the setup looked messy, especially when guests visited. I didn't want to spend money on a fix, but I realized I had tools and materials at hand—so I turned to CAD and 3D printing.</p>
+                            <p>I designed a toothbrush holder tailored to my exact needs: spots for both a regular and electric toothbrush, a standard razor, a guest brush, plus a cup in the center to neatly store my toothpaste, tongue scraper, and electric shaver. The vertical layout helps me remember to cap the toothpaste and keeps the counter clear. I also built in a crevice at the base to stabilize the brushes, and made the entire unit easy to split apart for cleaning—solving the common problem of stagnant water buildup.</p>                            
+                            <p>I didn’t overthink the aesthetics—I just let myself dive in and prototype freely. It’s a personal object for a personal space, so I focused on function first. Still, I added a thoughtful touch: a rear compartment for synthetic flowers to bring some color into my windowless bathroom. Since there’s no natural light and barely enough counter space for a vase, this built-in flower slot was a simple, cheerful solution for brightening up a space that often felt sterile.</p>
+                            <p>This project was about recognizing an everyday problem—and building a solution that made my life better, cleaner, and a little more joyful.</p>
+                        </div>
+                        <div class="toothbrush-gallery">
+                            <div class="gallery-row row-1">
+                                <img src="images/before.jpeg" alt="Toothbrush holder before" class="gallery-image">
+                            </div>
+                            <div class="gallery-row row-2">
+                                <img src="images/base.png" alt="Toothbrush holder base" class="gallery-image">
+                                <img src="images/top.png" alt="Toothbrush holder top" class="gallery-image">
+                            </div>
+                            <div class="gallery-row row-3">
+                                <img src="images/2.jpeg" alt="Toothbrush holder view 2" class="gallery-image">
+                                <img src="images/3.jpeg" alt="Toothbrush holder view 3" class="gallery-image">
+                            </div>
+                            <div class="gallery-row row-4">
+                                <img src="images/4.jpeg" alt="Toothbrush holder in use" class="gallery-image">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="studio-project fade-in">
+                    <div class="studio-project-content">
+                        <div class="studio-project-text">
+                            <h3>Coming soon</h3>
+                            
+                            <p>This space is reserved for the next project that captures my attention and demands a creative solution. It might be something I encounter in daily life, a problem I notice in my engineering coursework, or simply an interesting challenge that makes me want to build something.</p>
+                            
+                            <p>The beauty of this studio approach is that I never know what will spark the next idea. It could be as simple as a better way to organize my desk or as complex as a custom tool for a specific task. What matters is the process of identifying the problem, thinking through solutions, and building something that works.</p>
+                            
+                            <p>Check back soon—inspiration has a way of striking when you least expect it.</p>
+                        </div>
+                        <div class="studio-project-image project-c"></div>
+                    </div>
+                </div>
+                
                 <!-- Add more projects here -->
-            </ul>
+            </div>
         </div>
     </section>
 
@@ -1540,30 +1801,38 @@
     </footer>
 
     <script>
-        // Smooth scrolling for navigation links
+        /* JavaScript - this makes the website interactive! */
+        
+        // This code runs when the page finishes loading
         document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('.nav-links a');
-            const logo = document.querySelector('.logo');
+            // Find all the navigation links (the menu buttons)
+            const journeyLinks = document.querySelectorAll('.journey-links a');
+            // Find the studio title/logo
+            const studioTitle = document.querySelector('.studio-title');
             
-            // Add smooth scrolling to navigation links
-            navLinks.forEach(link => {
+            // Add smooth scrolling to each navigation link
+            // This makes clicking a menu item smoothly glide to that section
+            journeyLinks.forEach(link => {
                 link.addEventListener('click', function(e) {
-                    e.preventDefault();
+                    e.preventDefault(); // Stops the normal jump behavior
+                    // Get the section name from the link (like "#about")
                     const targetId = this.getAttribute('href').substring(1);
+                    // Find the actual section on the page
                     const targetSection = document.getElementById(targetId);
                     
+                    // If we found the section, smoothly scroll to it
                     if (targetSection) {
                         targetSection.scrollIntoView({
-                            behavior: 'smooth',
-                            block: 'start'
+                            behavior: 'smooth', // Makes it glide instead of jump
+                            block: 'start'      // Aligns to the top
                         });
                     }
                 });
             });
             
-            // Add smooth scrolling to logo
-            if (logo) {
-                logo.addEventListener('click', function(e) {
+            // Add smooth scrolling to the studio title (goes back to top)
+            if (studioTitle) {
+                studioTitle.addEventListener('click', function(e) {
                     e.preventDefault();
                     const homeSection = document.getElementById('home');
                     if (homeSection) {
@@ -1575,35 +1844,40 @@
                 });
             }
             
-            // Fade-in animations on scroll
-            const observerOptions = {
-                threshold: 0.1,
-                rootMargin: '0px 0px -50px 0px'
+            // Magical fade-in animations - like spirits appearing in the forest
+            const magicalAppearanceOptions = {
+                threshold: 0.1,           // How much of the element needs to be visible
+                rootMargin: '0px 0px -50px 0px' // Trigger a bit before fully visible
             };
             
-            const observer = new IntersectionObserver(function(entries) {
+            // This "observer" watches for elements coming into view
+            const spiritWatcher = new IntersectionObserver(function(entries) {
                 entries.forEach(entry => {
+                    // If the element is visible, add the 'visible' class to make it appear
                     if (entry.isIntersecting) {
                         entry.target.classList.add('visible');
                     }
                 });
-            }, observerOptions);
+            }, magicalAppearanceOptions);
             
-            // Observe all fade-in elements
-            const fadeElements = document.querySelectorAll('.fade-in');
-            fadeElements.forEach(element => {
-                observer.observe(element);
+            // Find all elements that should fade in when scrolled to
+            const magicalElements = document.querySelectorAll('.fade-in');
+            // Tell the spirit watcher to watch each of these elements
+            magicalElements.forEach(element => {
+                spiritWatcher.observe(element);
             });
             
-            // Initial fade-in for elements in view
+            // Make elements that are already visible appear immediately
+            // (like spirits that are already there when you arrive)
             setTimeout(() => {
-                fadeElements.forEach(element => {
+                magicalElements.forEach(element => {
                     const rect = element.getBoundingClientRect();
+                    // If element is already on screen, make it visible
                     if (rect.top < window.innerHeight && rect.bottom > 0) {
                         element.classList.add('visible');
                     }
                 });
-            }, 100);
+            }, 100); // Wait 100 milliseconds to let the page settle
         });
     </script>
 </body>
