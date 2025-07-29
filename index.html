@@ -64,52 +64,6 @@
                 50% { opacity: 0.8; width: 80px; }
             }
 
-            /* Scroll arrows for mobile navigation */
-            .scroll-arrow {
-                position: absolute;
-                top: 50%;
-                transform: translateY(-50%);
-                background: rgba(173, 216, 230, 0.9);
-                color: #2d4a2d;
-                border: none;
-                border-radius: 50%;
-                width: 40px;
-                height: 40px;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                font-size: 1.2rem;
-                z-index: 10;
-                cursor: pointer;
-                transition: all 0.3s ease;
-                box-shadow: 0 4px 15px rgba(173, 216, 230, 0.4);
-            }
-
-            .scroll-arrow:hover {
-                background: rgba(173, 216, 230, 1);
-                transform: translateY(-50%) scale(1.1);
-            }
-
-            .scroll-arrow.left {
-                left: 0.5rem;
-                opacity: 0;
-                pointer-events: none;
-            }
-
-            .scroll-arrow.right {
-                right: 0.5rem;
-                opacity: 1;
-            }
-
-            .scroll-arrow.visible {
-                opacity: 1;
-                pointer-events: auto;
-            }
-
-            .scroll-arrow.hidden {
-                opacity: 0;
-                pointer-events: none;
-            }
 
             .journey-links a {
                 padding: 0.8rem 1.8rem;
@@ -1666,18 +1620,14 @@
     <nav class="sky-navigation">
         <div class="sky-navigation-container">
             <a href="#home" class="studio-title">STUDIO GHIBLI X ABE</a>
-            <div class="nav-wrapper">
-                <button class="scroll-arrow left" id="scrollLeft">‹</button>
-                <ul class="journey-links" id="journeyLinks">
-                    <li><a href="#home">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#skills">Skills</a></li>
-                    <li><a href="#projects">Projects</a></li>
-                    <li><a href="#studio">Studio</a></li>
-                    <li><a href="#contact">Contact</a></li>
-                </ul>
-                <button class="scroll-arrow right" id="scrollRight">›</button>
-            </div>
+            <ul class="journey-links" id="journeyLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#studio">Studio</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
         </div>
     </nav>
     
@@ -2069,61 +2019,6 @@
                 });
             }, 100); // Wait 100 milliseconds to let the page settle
             
-            // Mobile navigation scroll arrows functionality
-            const journeyLinksContainer = document.getElementById('journeyLinks');
-            const scrollLeftBtn = document.getElementById('scrollLeft');
-            const scrollRightBtn = document.getElementById('scrollRight');
-            
-            if (journeyLinksContainer && scrollLeftBtn && scrollRightBtn) {
-                // Function to update arrow visibility based on scroll position
-                function updateArrows() {
-                    const scrollLeft = journeyLinksContainer.scrollLeft;
-                    const maxScroll = journeyLinksContainer.scrollWidth - journeyLinksContainer.clientWidth;
-                    
-                    // Show/hide left arrow
-                    if (scrollLeft > 10) {
-                        scrollLeftBtn.classList.add('visible');
-                        scrollLeftBtn.classList.remove('hidden');
-                    } else {
-                        scrollLeftBtn.classList.add('hidden');
-                        scrollLeftBtn.classList.remove('visible');
-                    }
-                    
-                    // Show/hide right arrow
-                    if (scrollLeft < maxScroll - 10) {
-                        scrollRightBtn.classList.add('visible');
-                        scrollRightBtn.classList.remove('hidden');
-                    } else {
-                        scrollRightBtn.classList.add('hidden');
-                        scrollRightBtn.classList.remove('visible');
-                    }
-                }
-                
-                // Scroll left button functionality
-                scrollLeftBtn.addEventListener('click', function() {
-                    journeyLinksContainer.scrollBy({
-                        left: -200,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Scroll right button functionality
-                scrollRightBtn.addEventListener('click', function() {
-                    journeyLinksContainer.scrollBy({
-                        left: 200,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                // Listen for scroll events to update arrow visibility
-                journeyLinksContainer.addEventListener('scroll', updateArrows);
-                
-                // Initial arrow state
-                updateArrows();
-                
-                // Update arrows on window resize
-                window.addEventListener('resize', updateArrows);
-            }
         });
     </script>
 </body>
