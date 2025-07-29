@@ -1666,13 +1666,15 @@
     <nav class="sky-navigation">
         <div class="sky-navigation-container">
             <a href="#home" class="studio-title">STUDIO GHIBLI X ABE</a>
-            <ul class="journey-links">
+            <ul class="journey-links" id="journeyLinks">
                 <li><a href="#home">Home</a></li>
                 <li><a href="#about">About</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#studio">Studio</a></li>
                 <li><a href="#contact">Contact</a></li>
+                <button class="scroll-arrow left" id="scrollLeft">‹</button>
+                <button class="scroll-arrow right" id="scrollRight">›</button>
             </ul>
         </div>
     </nav>
@@ -2064,6 +2066,62 @@
                     }
                 });
             }, 100); // Wait 100 milliseconds to let the page settle
+            
+            // Mobile navigation scroll arrows functionality
+            const journeyLinksContainer = document.getElementById('journeyLinks');
+            const scrollLeftBtn = document.getElementById('scrollLeft');
+            const scrollRightBtn = document.getElementById('scrollRight');
+            
+            if (journeyLinksContainer && scrollLeftBtn && scrollRightBtn) {
+                // Function to update arrow visibility based on scroll position
+                function updateArrows() {
+                    const scrollLeft = journeyLinksContainer.scrollLeft;
+                    const maxScroll = journeyLinksContainer.scrollWidth - journeyLinksContainer.clientWidth;
+                    
+                    // Show/hide left arrow
+                    if (scrollLeft > 10) {
+                        scrollLeftBtn.classList.add('visible');
+                        scrollLeftBtn.classList.remove('hidden');
+                    } else {
+                        scrollLeftBtn.classList.add('hidden');
+                        scrollLeftBtn.classList.remove('visible');
+                    }
+                    
+                    // Show/hide right arrow
+                    if (scrollLeft < maxScroll - 10) {
+                        scrollRightBtn.classList.add('visible');
+                        scrollRightBtn.classList.remove('hidden');
+                    } else {
+                        scrollRightBtn.classList.add('hidden');
+                        scrollRightBtn.classList.remove('visible');
+                    }
+                }
+                
+                // Scroll left button functionality
+                scrollLeftBtn.addEventListener('click', function() {
+                    journeyLinksContainer.scrollBy({
+                        left: -200,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Scroll right button functionality
+                scrollRightBtn.addEventListener('click', function() {
+                    journeyLinksContainer.scrollBy({
+                        left: 200,
+                        behavior: 'smooth'
+                    });
+                });
+                
+                // Listen for scroll events to update arrow visibility
+                journeyLinksContainer.addEventListener('scroll', updateArrows);
+                
+                // Initial arrow state
+                updateArrows();
+                
+                // Update arrows on window resize
+                window.addEventListener('resize', updateArrows);
+            }
         });
     </script>
 </body>
