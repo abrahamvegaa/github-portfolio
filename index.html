@@ -11,11 +11,121 @@
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One:wght@400&family=Nunito:wght@300;400;600;700&family=Comfortaa:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         /* CSS styles - this is where we make everything look pretty! */
-        /* Universal reset - removes default spacing from all elements */
+/* Universal reset - removes default spacing from all elements */
         * {
-            margin: 0;           /* Removes default margins */
-            padding: 0;          /* Removes default padding */
+            margin: 0;          /* Removes default margins */
+            padding: 0;         /* Removes default padding */
             box-sizing: border-box; /* Makes sizing calculations easier */
+        }
+
+        /* Mobile-specific styles */
+        @media (max-width: 768px) {
+            .studio-title {
+                display: block;
+                font-size: 1.5rem;
+                margin-bottom: 0.5rem;
+            }
+
+            .journey-links {
+                overflow-x: auto;
+                white-space: nowrap;
+                flex-wrap: nowrap;
+                gap: 1rem;
+                padding: 0.5rem 0;
+            }
+
+            .journey-links a {
+                padding: 0.6rem 1.2rem;
+                font-size: 0.9rem;
+                min-width: max-content;
+            }
+
+            .magical-welcome {
+                padding-top: 140px;
+            }
+
+            .magical-welcome .forest-spirit-image,
+            .magical-welcome .sea-spirit-image {
+                width: 80px;
+                height: 60px;
+                position: relative;
+                display: inline-block;
+                margin: 0 1rem;
+                bottom: auto;
+                left: auto;
+                right: auto;
+            }
+
+            .magical-welcome .forest-spirit-image {
+                left: 10px;
+            }
+
+            .magical-welcome .sea-spirit-image {
+                right: 10px;
+            }
+
+            .welcome-scene-image {
+                width: 90%;
+                max-width: 450px;
+                height: 270px;
+            }
+
+            .about-text h3 {
+                font-size: 1.1rem;
+                line-height: 1.4;
+            }
+
+            .about-text p {
+                font-size: 0.95rem;
+                line-height: 1.6;
+            }
+
+            .profile-card {
+                min-height: 500px;
+                padding: 2.5rem;
+            }
+
+            .profile-card .profile-img {
+                width: 200px;
+                height: 200px;
+                background-position: 50% 50%;
+                background-size: cover;
+                overflow: hidden;
+            }
+
+            .studio-project-text h3 {
+                font-size: 1.6rem;
+            }
+
+            .studio-project-text p {
+                font-size: 0.95rem;
+            }
+
+            .bike-image {
+                width: 120px;
+                height: 90px;
+                left: 10px;
+                top: 10px;
+            }
+
+            .boat-image {
+                opacity: 0.3;
+                width: 120px;
+                height: 90px;
+                right: 10px;
+                bottom: 10px;
+            }
+
+            .contact-item {
+                position: relative;
+                z-index: 10;
+            }
+
+            .contact-item a {
+                opacity: 1;
+                z-index: 15;
+                position: relative;
+            }
         }
 
         /* Main body styling - like the canvas for our Ghibli world */
@@ -50,6 +160,15 @@
             justify-content: space-between; /* Puts logo on left, links on right */
             align-items: center;       /* Vertically centers everything */
             padding: 0 2rem;           /* Adds space on left and right sides */
+        }
+
+        /* Mobile navigation layout */
+        @media (max-width: 768px) {
+            .sky-navigation-container {
+                flex-direction: column;
+                align-items: center;
+                padding: 1rem;
+            }
         }
 
         /* Studio name/logo - inspired by the magical studio names in Ghibli films */
@@ -1523,12 +1642,18 @@
         <div class="cloud-fill-5"></div>
         <div class="cloud-fill-6"></div>
 
+        <!-- Main welcome image - like a scene from Spirited Away -->
+        <div class="welcome-scene-image"></div>
+        
         <!-- Ghibli characters greet visitors - like Totoro and friends -->
         <div class="forest-spirit-image" style="height: 300px;"></div>
         <div class="sea-spirit-image" style="height: 300px;"></div>
-
-        <!-- Main welcome image - like a scene from Spirited Away -->
-        <div class="welcome-scene-image"></div>
+        
+        <!-- Mobile character images container -->
+        <div class="mobile-character-container" style="display: none;">
+            <div class="mobile-forest-spirit"></div>
+            <div class="mobile-sea-spirit"></div>
+        </div>
         
         <!-- Welcome content - our story begins here -->
         <div class="welcome-content">
@@ -1559,7 +1684,7 @@
                 
                 <p>Whether it’s building embedded systems, exploring computer architecture, or diving into low-level design, I bring both logic and imagination to every line of code. This portfolio reflects not just my skills, but the wonder and curiosity that drive me — the same feelings I had watching <em>Howl’s Moving Castle</em> as a kid.</p>
                 
-                <p>Outside of engineering, I find joy in things that feel just as intentionally made — animated films (especially Spirited Away and Ponyo), beautiful cinematography, the precision of baking, and the rhythmic satisfaction of cleaning and bringing order to a space. I’ve always loved flowers and greenery, but what I really dream of is something bigger than a garden — a space full of life, with animals roaming freely and blooms everywhere, like a small, colorful farm built with care.</p>
+                <p>Outside of engineering, I gravitate toward things made with care — animated films (especially Spirited Away and Ponyo), thoughtful cinematography, the structure of baking, and spending time outdoors swimming or playing pickleball with my brothers. I’ve always appreciated plants and quiet green spaces, but one day I hope to build something more — a small, working farm full of animals and blooming life, where I could ride a horse down a dirt path at sunset and feel completely at ease.</p>
             </div>
         </div>
     </section>
