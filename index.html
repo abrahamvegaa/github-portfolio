@@ -33,15 +33,35 @@
                 white-space: nowrap;
                 flex-wrap: nowrap;
                 gap: 2rem;
-                padding: 0.5rem 1rem;
+                padding: 1rem 1rem 1.5rem 1rem;
                 -webkit-overflow-scrolling: touch;
                 scrollbar-width: none;
                 -ms-overflow-style: none;
                 width: 100%;
+                position: relative;
             }
 
             .journey-links::-webkit-scrollbar {
                 display: none;
+            }
+
+            /* Add scroll indicator for mobile tabs */
+            .journey-links::after {
+                content: '';
+                position: absolute;
+                bottom: 0;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 60px;
+                height: 3px;
+                background: linear-gradient(90deg, transparent, rgba(173, 216, 230, 0.6), transparent);
+                border-radius: 2px;
+                animation: scrollHint 3s ease-in-out infinite;
+            }
+
+            @keyframes scrollHint {
+                0%, 100% { opacity: 0.4; width: 60px; }
+                50% { opacity: 0.8; width: 80px; }
             }
 
             .journey-links a {
@@ -160,7 +180,7 @@
             .sky-navigation-container {
                 flex-direction: column;
                 align-items: center;
-                padding: 1rem;
+                padding: 1rem 1rem 1.5rem 1rem;
             }
         }
 
